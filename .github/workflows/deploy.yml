@@ -29,7 +29,7 @@ jobs:
     
     - name: Build Docker image
       run: |
-        docker build -t ${{ env.IMAGE_NAME }}:latest .
+        docker build -t ${{ env.IMAGE_NAME }}:latest -f ./portfolio-app/Dockerfile ./portfolio-app
         docker tag ${{ env.IMAGE_NAME }}:latest ${{ secrets.REGISTRY_URL }}/${{ env.IMAGE_NAME }}:latest
         docker tag ${{ env.IMAGE_NAME }}:latest ${{ secrets.REGISTRY_URL }}/${{ env.IMAGE_NAME }}:${{ github.sha }}
     
@@ -49,14 +49,20 @@ jobs:
           # Navigate to the ranking folder
           cd /home/ubuntu/Ui-Protfolio
           
+          # Derive registry and set compose image vars
+          REG="${{ secrets.REGISTRY_URL }}"
+          REG="${REG%/}"
+          export IMAGE="$REG/${{ env.IMAGE_NAME }}"
+          export IMAGE_TAG=latest
+
           # Pull the latest image from registry
-          sudo docker pull localhost:5000/${{ env.IMAGE_NAME }}:latest
-          
+          sudo docker pull "$IMAGE:$IMAGE_TAG"
+
           # Stop current containers (docker compose)
-          sudo docker compose down
-          
+          sudo docker compose down || true
+
           # Start containers with the new image
-          sudo docker compose up -d
+          sudo docker compose up -d --remove-orphans
           
           # Wait for containers to be healthy
           sleep 5
@@ -69,11 +75,11 @@ jobs:
             echo "Cleaning up old Docker images..."
             
             # Get current image ID
-            CURRENT_IMAGE=$(sudo docker inspect --format='{{.Id}}' localhost:5000/${{ env.IMAGE_NAME }}:latest)
+            CURRENT_IMAGE=$(sudo docker inspect --format='{{.Id}}' "$IMAGE:$IMAGE_TAG")
             
             # Keep only the last 2 images of our app
             sudo docker images --format "{{.Repository}}:{{.Tag}} {{.ID}}" | \
-              grep "localhost:5000/${{ env.IMAGE_NAME }}" | \
+              grep "$REG/${{ env.IMAGE_NAME }}" | \
               grep -v "latest" | \
               awk '{print $2}' | \
               xargs -r sudo docker rmi -f 2>/dev/null || true
