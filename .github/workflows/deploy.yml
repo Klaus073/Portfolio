@@ -2,11 +2,11 @@ name: Deploy to Staging with Docker
 
 on:
   push:
-    branches: [ staging ]
+    branches: [ main ]
 
 env:
-  IMAGE_NAME: 'student-ranking-app'  # Updated to match your compose file
-  CONTAINER_NAME: 'ranking-app'
+  IMAGE_NAME: 'protfolio'  # Updated to match your compose file
+  CONTAINER_NAME: 'protfolio-app'
 
 jobs:
   build-and-deploy:
