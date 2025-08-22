@@ -9,8 +9,7 @@ concurrency:
   cancel-in-progress: true
 
 env:
-  REGISTRY_URL: ${{ vars.REGISTRY_URL }}
-  IMAGE_NAME: portfolio-app
+  IMAGE_REPO: ${{ vars.IMAGE_REPO }}
   EC2_APP_DIR: /home/ubuntu/Ui-Protfolio
 
 jobs:
@@ -47,10 +46,10 @@ jobs:
           file: ./portfolio-app/Dockerfile
           push: true
           tags: |
-            ${{ env.REGISTRY_URL }}/${{ env.IMAGE_NAME }}:latest
-            ${{ env.REGISTRY_URL }}/${{ env.IMAGE_NAME }}:${{ github.sha }}
-          cache-from: type=registry,ref=${{ env.REGISTRY_URL }}/${{ env.IMAGE_NAME }}:buildcache
-          cache-to: type=registry,ref=${{ env.REGISTRY_URL }}/${{ env.IMAGE_NAME }}:buildcache,mode=max
+            ${{ env.IMAGE_REPO }}:latest
+            ${{ env.IMAGE_REPO }}:${{ github.sha }}
+          cache-from: type=registry,ref=${{ env.IMAGE_REPO }}:buildcache
+          cache-to: type=registry,ref=${{ env.IMAGE_REPO }}:buildcache,mode=max
 
       - name: Deploy on EC2 via SSH and run compose
         uses: appleboy/ssh-action@v1.0.3
@@ -58,13 +57,13 @@ jobs:
           host: ${{ env.EC2_HOST }}
           username: ${{ env.EC2_USER }}
           key: ${{ env.EC2_SSH_KEY }}
-          envs: EC2_APP_DIR,REGISTRY_URL,IMAGE_NAME
+          envs: EC2_APP_DIR,IMAGE_REPO
           script_stop: true
           command_timeout: 30m
           script: |
             set -euo pipefail
             cd "$EC2_APP_DIR"
-            export IMAGE="$REGISTRY_URL/$IMAGE_NAME"
+            export IMAGE="$IMAGE_REPO"
             # Compose should reference image as ${IMAGE}:${IMAGE_TAG}
             export IMAGE_TAG=latest
             docker compose pull
