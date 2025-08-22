@@ -10,8 +10,8 @@ concurrency:
 
 env:
   REGISTRY_URL: ${{ vars.REGISTRY_URL }}
-  IMAGE_NAME: ${{ vars.IMAGE_NAME }}
-  EC2_APP_DIR: ${{ vars.EC2_APP_DIR }}
+  IMAGE_NAME: portfolio-app
+  EC2_APP_DIR: /home/ubuntu/Ui-Protfolio
 
 jobs:
   build-and-deploy:
@@ -20,13 +20,10 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Resolve credentials and targets (Secrets -> Vars fallback)
+      - name: Resolve EC2 credentials (Secrets -> Vars fallback)
         shell: bash
         run: |
           set -euo pipefail
-          # Registry creds
-          if [ -n "${{ secrets.REGISTRY_USERNAME }}" ]; then echo "REGISTRY_USERNAME=${{ secrets.REGISTRY_USERNAME }}" >> "$GITHUB_ENV"; else echo "REGISTRY_USERNAME=${{ vars.REGISTRY_USERNAME }}" >> "$GITHUB_ENV"; fi
-          if [ -n "${{ secrets.REGISTRY_PASSWORD }}" ]; then echo "REGISTRY_PASSWORD=${{ secrets.REGISTRY_PASSWORD }}" >> "$GITHUB_ENV"; else echo "REGISTRY_PASSWORD=${{ vars.REGISTRY_PASSWORD }}" >> "$GITHUB_ENV"; fi
           # EC2 creds
           if [ -n "${{ secrets.EC2_HOST }}" ]; then echo "EC2_HOST=${{ secrets.EC2_HOST }}" >> "$GITHUB_ENV"; else echo "EC2_HOST=${{ vars.EC2_HOST }}" >> "$GITHUB_ENV"; fi
           if [ -n "${{ secrets.EC2_USER }}" ]; then echo "EC2_USER=${{ secrets.EC2_USER }}" >> "$GITHUB_ENV"; else echo "EC2_USER=${{ vars.EC2_USER }}" >> "$GITHUB_ENV"; fi
@@ -35,18 +32,11 @@ jobs:
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
 
-      - name: Log in to container registry
-        uses: docker/login-action@v3
-        with:
-          registry: ${{ env.REGISTRY_URL }}
-          username: ${{ env.REGISTRY_USERNAME }}
-          password: ${{ env.REGISTRY_PASSWORD }}
-
       - name: Build and push Docker image
         uses: docker/build-push-action@v6
         with:
-          context: .
-          file: ./Dockerfile
+          context: ./portfolio-app
+          file: ./portfolio-app/Dockerfile
           push: true
           tags: |
             ${{ env.REGISTRY_URL }}/${{ env.IMAGE_NAME }}:latest
@@ -60,7 +50,7 @@ jobs:
           host: ${{ env.EC2_HOST }}
           username: ${{ env.EC2_USER }}
           key: ${{ env.EC2_SSH_KEY }}
-          envs: EC2_APP_DIR,REGISTRY_URL,IMAGE_NAME,REGISTRY_USERNAME,REGISTRY_PASSWORD
+          envs: EC2_APP_DIR,REGISTRY_URL,IMAGE_NAME
           script_stop: true
           command_timeout: 30m
           script: |
@@ -69,7 +59,6 @@ jobs:
             export IMAGE="$REGISTRY_URL/$IMAGE_NAME"
             # Compose should reference image as ${IMAGE}:${IMAGE_TAG}
             export IMAGE_TAG=latest
-            docker login "$REGISTRY_URL" -u "$REGISTRY_USERNAME" -p "$REGISTRY_PASSWORD"
             docker compose pull
             docker compose up -d --remove-orphans
             docker image prune -af
