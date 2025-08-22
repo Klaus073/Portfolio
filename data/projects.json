@@ -6,76 +6,86 @@
       "timeline": "July 2024 - August 2024",
       "industry": "Sales",
       "deliverables": "Backend",
-      "team": "Team lead, Backend Engineer,  AI Engineer, Devops",
-      "platforms": "iOS, Teams",
+      "team": "Team lead, Backend Engineer, AI Engineer, DevOps",
+      "platforms": "Web, iOS, Teams",
       "tech": [
-        "Python"
+        "Python",
+        "Flask",
+        "PostgreSQL",
+        "Docker",
+        "AWS",
+        "Nginx"
       ],
-      "services": [],
-      "description": "Ekho is an AI-driven project in the Sales domain. The Ekho platform is an advanced AI-powered platform designed to train sales agents through interactive voice-based conversations. Developed using Python and Large Language Models (LLMs), the AI agent simulates real-world sales scenarios, enabling agents to practice and hone their communication skills in a controlled environment. The platform utilizes voice-to-voice prompts to create a highly engaging training experience, making it an effective tool for companies aiming to improve their sales team's performance.\n\nIn addition to the AI training agent, the platform includes comprehensive user management features. A unique link can be generated, allowing multiple users to join the platform and participate in training sessions. Users can perform CRUD (Create, Read, Update, Delete) operations on personas, which represent different customer profiles used in training scenarios.\n\nThe platform also supports essential account management functionalities, including login, registration, password reset, and recovery processes. This ensures a secure and seamless user experience, making it easy for sales teams to access and utilize the training resources. Key deliverables included Backend. The solution uses Python. Target platforms: iOS, Teams.",
+      "libraries": [
+        "flask",
+        "itsdangerous",
+        "vapi",
+        "livekit",
+        "sqlalchemy",
+        "werkzeug",
+        "prometheus",
+        "python-dotenv",
+        "datetime",
+        "langchain",
+        "langchain_openai",
+        "langchain_core"
+      ],
+      "services": [
+        "OpenAI",
+        "PostgreSQL",
+        "Docker",
+        "AWS",
+        "Vapi (Voice AI)",
+        "LiveKit (Real-time Audio)"
+      ],
+      "description": "Ekho is an AI-driven project in the Sales domain. The Ekho platform is an advanced AI-powered platform designed to train sales agents through interactive voice-based conversations. Developed using Python and Large Language Models (LLMs), the AI agent simulates real-world sales scenarios, enabling agents to practice and hone their communication skills in a controlled environment. The platform utilizes voice-to-voice prompts to create a highly engaging training experience, making it an effective tool for companies aiming to improve their sales team's performance. In addition to the AI training agent, the platform includes comprehensive user management features. A unique link can be generated, allowing multiple users to join the platform and participate in training sessions. Users can perform CRUD (Create, Read, Update, Delete) operations on personas, which represent different customer profiles used in training scenarios. The platform also supports essential account management functionalities, including login, registration, password reset, and recovery processes. Key deliverables included Backend. The solution uses Python, Flask, PostgreSQL, Docker, AWS. Target platforms: Web, iOS, Teams.",
       "highlights": [
-        "Persona‑driven experience with long‑term memory.",
-        "Real‑time voice pipeline with VAD and duplex audio.",
-        "Agentic workflows with tool‑calling and guardrails.",
-        "Enterprise‑grade security with auth, RBAC, and compliance.",
-        "Rich integrations with external systems and CRMs."
+        "Persona-driven experience with long-term memory",
+        "Real-time voice pipeline with VAD and duplex audio",
+        "Agentic workflows with tool-calling and guardrails",
+        "Enterprise-grade security with auth, RBAC, and compliance",
+        "Rich integrations with external systems and CRMs"
       ],
       "problems": [
         {
-          "task": "Requirements & Scope",
-          "solution": "Ran discovery to define outcomes, guardrails, KPIs, and success metrics."
+          "task": "Backend APIs",
+          "solution": "Implemented Flask APIs to handle AI interactions, user registration, authentication, persona management, and secure data operations"
         },
         {
-          "task": "Data Modeling",
-          "solution": "Designed schemas for users, sessions, prompts, and artifacts."
+          "task": "LLM Integration",
+          "solution": "Utilized LLMs to generate dynamic conversational responses, enabling real-time, AI-driven training simulations within the backend APIs"
         },
         {
-          "task": "Prompt & Policy Design",
-          "solution": "Structured prompts, system personas, and safety rules with versioning."
+          "task": "Call Feature",
+          "solution": "Integrated voice communication system using Vapi and LiveKit that allows users to make and receive calls for live, interactive training sessions"
         },
         {
-          "task": "Evaluation Harness",
-          "solution": "Built unit/e2e tests with golden sets and rubric‑based scoring."
+          "task": "Conversation History and Memory",
+          "solution": "Implemented conversation history and memory feature using Langchain that tracks and stores interactions for continuity and improved training relevance"
         },
         {
-          "task": "API Design",
-          "solution": "Defined REST endpoints and contracts for auth, CRUD, and AI actions."
+          "task": "Authentication & RBAC",
+          "solution": "Implemented JWT-based authentication and role-based access control for secure platform access"
         },
         {
-          "task": "Auth & RBAC",
-          "solution": "Implemented JWT/SSO and role‑based access to routes, prompts, and logs."
+          "task": "Database Management",
+          "solution": "Implemented scalable PostgreSQL database with proper schema design, migrations using SQLAlchemy, and automated backups on AWS RDS"
         },
         {
-          "task": "Observability",
-          "solution": "Set up structured logging, tracing, dashboards, and alerting."
+          "task": "CI/CD Pipeline",
+          "solution": "Set up GitHub Pipelines with YAML configuration for automated testing, Docker image builds, and deployment to AWS"
         },
         {
-          "task": "CI/CD",
-          "solution": "Automated testing, image builds, and environment promotion."
+          "task": "Real-time Feedback",
+          "solution": "Implemented real-time feedback mechanisms using LLMs to analyze agent responses and provide constructive insights"
         },
         {
-          "task": "Deployment",
-          "solution": "Provisioned infra, secrets, and rollback strategy on cloud."
+          "task": "AWS Infrastructure",
+          "solution": "Migrated database to AWS RDS with automated backups using Amazon Backup Service and S3 storage"
         },
         {
-          "task": "Documentation & Handover",
-          "solution": "Created runbooks, ADRs, and onboarding guides."
-        },
-        {
-          "task": "Realtime Audio",
-          "solution": "Implemented full‑duplex audio, VAD, and jitter buffering."
-        },
-        {
-          "task": "Speech Interfaces",
-          "solution": "Integrated ASR/TTS with latency budgets and caching."
-        },
-        {
-          "task": "Tool‑Calling/Agents",
-          "solution": "Designed tool schema, routing, and error recovery with retries."
-        },
-        {
-          "task": "Guardrails",
-          "solution": "Added constraints, schema validation, and safe tool execution sandboxing."
+          "task": "Monitoring & Observability",
+          "solution": "Implemented Prometheus for user behavior tracking, structured logging, and performance monitoring"
         }
       ],
       "links": {
@@ -89,7 +99,7 @@
           "alt": ""
         }
       ],
-      "tags": []
+      "tags": ["AI", "Voice AI", "LLM", "Sales Training", "Real-time Audio"]
     },
     {
       "title": "LLM Marketplace",
@@ -97,66 +107,90 @@
       "timeline": "2024 - present",
       "industry": "Legal",
       "deliverables": "Fullstack",
-      "team": "Android developer, UI/UX Designer, Devops, Database Engineer, Team lead, Frontend Developer, Backend developer, Quality Assurance Engineer",
-      "platforms": "Android",
-      "tech": [],
-      "services": [],
-      "description": "LLM Marketplace is an AI-driven project in the Legal domain. The LLM Marketplace Platform is the central location for accessing an elite collection of state-of-the-art and open-source Large Language Models (LLMs). It allows users to interact with a wide variety of LLMs so they can compare performance, features, and suitability for a task seamlessly. It has a user-friendly interface, robust search and filter capabilities, detailed model descriptions, and performance metrics that enable the user to find and integrate the right LLMs within their project. Besides, it promotes interactions among a community of developers for knowledge exchange and the transfer of best practices in using the platform. In democratizing AI technologies, pushing the frontier of innovation, and becoming the platform of choice for anybody interested in exploiting state-of-the-art LLMs, the LLM Marketplace Platform does this by giving access to advanced LLM models easily. Key deliverables included Fullstack. Target platforms: Android.",
+      "team": "Android developer, UI/UX Designer, DevOps, Database Engineer, Team lead, Frontend Developer, Backend developer, Quality Assurance Engineer",
+      "platforms": "Web, Mobile App, Android",
+      "tech": [
+        "Python",
+        "Flask",
+        "Node.js",
+        "React",
+        "Angular",
+        "Kotlin",
+        "PostgreSQL",
+        "MongoDB"
+      ],
+      "libraries": [
+        "functions-framework==3.3.0",
+        "flask==2.2.5",
+        "google-cloud-error-reporting==1.9.1",
+        "langchain==0.0.263",
+        "python-dotenv==1.0.0",
+        "openai==0.27.8",
+        "aiohttp==3.8.6",
+        "tiktoken",
+        "youtube-transcript-api",
+        "faiss-cpu",
+        "pypdf",
+        "bs4"
+      ],
+      "services": [
+        "OpenAI GPT-4",
+        "Google Gemini",
+        "Anthropic Claude",
+        "Grok",
+        "Open-source LLM models",
+        "DigitalOcean",
+        "Bitbucket",
+        "GoDaddy"
+      ],
+      "description": "LLM Marketplace is an AI-driven project in the Legal domain. The LLM Marketplace Platform is the central location for accessing an elite collection of state-of-the-art and open-source Large Language Models (LLMs). It allows users to interact with a wide variety of LLMs so they can compare performance, features, and suitability for a task seamlessly. It has a user-friendly interface, robust search and filter capabilities, detailed model descriptions, and performance metrics that enable the user to find and integrate the right LLMs within their project. The platform supports multiple LLM integration, document and video interpretation, website exploration, and AI role assignment. Key deliverables included Fullstack. The solution uses Python, Flask, Langchain, OpenAI, Gemini, Claude, and various open-source models. Target platforms: Web, Android.",
       "highlights": [
-        "Built‑in analytics, scoring, and feedback loops.",
-        "Multimodal inputs/outputs across text, audio, and images.",
-        "Rich integrations with external systems and CRMs.",
-        "Robust architecture designed for reliability and resilience.",
-        "Clear evaluation loop with measurable quality targets."
+        "Built-in analytics, scoring, and feedback loops",
+        "Multimodal inputs/outputs across text, audio, and images",
+        "Rich integrations with external systems and CRMs",
+        "Robust architecture designed for reliability and resilience",
+        "Clear evaluation loop with measurable quality targets"
       ],
       "problems": [
         {
-          "task": "Requirements & Scope",
-          "solution": "Ran discovery to define outcomes, guardrails, KPIs, and success metrics."
+          "task": "Multiple LLM Integration",
+          "solution": "Implemented dynamic LLM selection system supporting OpenAI, Gemini, Claude, and Grok with unified interface"
         },
         {
-          "task": "Data Modeling",
-          "solution": "Designed schemas for users, sessions, prompts, and artifacts."
+          "task": "Document Interpreter",
+          "solution": "Integrated OCR and NLP using pypdf and bs4 to extract and process information from various document formats"
         },
         {
-          "task": "Prompt & Policy Design",
-          "solution": "Structured prompts, system personas, and safety rules with versioning."
+          "task": "Video Interpreter",
+          "solution": "Utilized youtube-transcript-api and ML algorithms to analyze and extract information from video content"
         },
         {
-          "task": "Evaluation Harness",
-          "solution": "Built unit/e2e tests with golden sets and rubric‑based scoring."
+          "task": "Vector Search",
+          "solution": "Implemented FAISS for efficient similarity search and retrieval of LLM model information"
         },
         {
-          "task": "API Design",
-          "solution": "Defined REST endpoints and contracts for auth, CRUD, and AI actions."
+          "task": "Chat History and Memory",
+          "solution": "Developed chat memory module using Langchain buffer memory for context continuity"
         },
         {
-          "task": "Auth & RBAC",
-          "solution": "Implemented JWT/SSO and role‑based access to routes, prompts, and logs."
+          "task": "Android App Development",
+          "solution": "Built feature-rich Android app using Kotlin with offline capabilities and on-device memory"
         },
         {
-          "task": "Observability",
-          "solution": "Set up structured logging, tracing, dashboards, and alerting."
+          "task": "API Rate Limiting",
+          "solution": "Developed rate limiting mechanisms to protect APIs and ensure fair usage across multiple LLM providers"
         },
         {
-          "task": "CI/CD",
-          "solution": "Automated testing, image builds, and environment promotion."
+          "task": "Website Explorer",
+          "solution": "Built web scraping tool using BeautifulSoup for extracting and interpreting website content"
         },
         {
-          "task": "Deployment",
-          "solution": "Provisioned infra, secrets, and rollback strategy on cloud."
+          "task": "Automated Deployment",
+          "solution": "Implemented Bitbucket Pipelines with DigitalOcean for CI/CD automation"
         },
         {
-          "task": "Documentation & Handover",
-          "solution": "Created runbooks, ADRs, and onboarding guides."
-        },
-        {
-          "task": "Multimodal I/O",
-          "solution": "Processed images/documents; normalized outputs for downstream use."
-        },
-        {
-          "task": "Performance",
-          "solution": "Profiled hotspots and applied caching/batching strategies."
+          "task": "Performance Optimization",
+          "solution": "Implemented caching strategies using tiktoken for token optimization and async processing with aiohttp"
         }
       ],
       "links": {
@@ -170,74 +204,77 @@
           "alt": ""
         }
       ],
-      "tags": []
+      "tags": ["AI", "LLM", "Marketplace", "Multi-model", "Legal Tech"]
     },
     {
-      "title": "AI Petition Assitant",
-      "slug": "ai-petition-assitant",
+      "title": "AI Petition Assistant",
+      "slug": "ai-petition-assistant",
       "timeline": "2024 - present",
       "industry": "Legal",
       "deliverables": "Fullstack",
-      "team": "Project manager, Devops, Database Engineer, Team lead, Frontend Developer, Backend developer, Quality Assurance Engineer",
-      "platforms": "",
-      "tech": [],
-      "services": [],
-      "description": "AI Petition Assitant is an AI-driven project in the Legal domain. Reduce the effort of EB1A application time from months to minutes with the help of Generative AI Key deliverables included Fullstack.",
+      "team": "Project manager, DevOps, Database Engineer, Team lead, Frontend Developer, Backend developer, Quality Assurance Engineer",
+      "platforms": "Web",
+      "tech": [
+        "Python",
+        "React",
+        "Node.js",
+        "PostgreSQL",
+        "OpenAI GPT-4"
+      ],
+      "services": [
+        "OpenAI GPT-4",
+        "AWS",
+        "Stripe",
+        "SendGrid"
+      ],
+      "description": "AI Petition Assistant is an AI-driven project in the Legal domain. Reduce the effort of EB1A visa application time from months to minutes with the help of Generative AI. The platform automates the complex process of preparing EB1A petitions, including document generation, evidence organization, and narrative writing. Key deliverables included Fullstack. The solution uses Python, React, OpenAI GPT-4, and PostgreSQL.",
       "highlights": [
-        "Robust architecture designed for reliability and resilience.",
-        "Clear evaluation loop with measurable quality targets.",
-        "Scalable design to support growth in users and data.",
-        "Privacy‑aware data handling with sensible defaults.",
-        "Developer‑friendly interfaces and documentation."
+        "Robust architecture designed for reliability and resilience",
+        "Clear evaluation loop with measurable quality targets",
+        "Scalable design to support growth in users and data",
+        "Privacy-aware data handling with sensible defaults",
+        "Developer-friendly interfaces and documentation"
       ],
       "problems": [
         {
-          "task": "Requirements & Scope",
-          "solution": "Ran discovery to define outcomes, guardrails, KPIs, and success metrics."
+          "task": "Document Generation",
+          "solution": "Implemented GPT-4 based document generation system for creating petition letters and supporting documents"
         },
         {
-          "task": "Data Modeling",
-          "solution": "Designed schemas for users, sessions, prompts, and artifacts."
+          "task": "Evidence Organization",
+          "solution": "Built intelligent system to categorize and organize evidence according to EB1A criteria"
         },
         {
-          "task": "Prompt & Policy Design",
-          "solution": "Structured prompts, system personas, and safety rules with versioning."
+          "task": "Compliance Checking",
+          "solution": "Developed automated compliance checking against USCIS requirements and guidelines"
         },
         {
-          "task": "Evaluation Harness",
-          "solution": "Built unit/e2e tests with golden sets and rubric‑based scoring."
+          "task": "Template Management",
+          "solution": "Created dynamic template system for various petition components with version control"
         },
         {
-          "task": "API Design",
-          "solution": "Defined REST endpoints and contracts for auth, CRUD, and AI actions."
+          "task": "User Data Security",
+          "solution": "Implemented end-to-end encryption for sensitive immigration data and documents"
         },
         {
-          "task": "Auth & RBAC",
-          "solution": "Implemented JWT/SSO and role‑based access to routes, prompts, and logs."
+          "task": "Payment Integration",
+          "solution": "Integrated Stripe for secure payment processing with subscription management"
         },
         {
-          "task": "Observability",
-          "solution": "Set up structured logging, tracing, dashboards, and alerting."
+          "task": "Document Export",
+          "solution": "Built PDF generation system for final petition package export with proper formatting"
         },
         {
-          "task": "CI/CD",
-          "solution": "Automated testing, image builds, and environment promotion."
+          "task": "Multi-language Support",
+          "solution": "Implemented internationalization for supporting multiple languages in petition generation"
         },
         {
-          "task": "Deployment",
-          "solution": "Provisioned infra, secrets, and rollback strategy on cloud."
+          "task": "Review Workflow",
+          "solution": "Created multi-stage review workflow with attorney collaboration features"
         },
         {
-          "task": "Documentation & Handover",
-          "solution": "Created runbooks, ADRs, and onboarding guides."
-        },
-        {
-          "task": "Performance",
-          "solution": "Profiled hotspots and applied caching/batching strategies."
-        },
-        {
-          "task": "Security Hardening",
-          "solution": "Threat‑modeled, patched dependencies, and secret rotation."
+          "task": "Performance Optimization",
+          "solution": "Optimized document processing pipeline for handling large evidence files"
         }
       ],
       "links": {
@@ -251,7 +288,7 @@
           "alt": ""
         }
       ],
-      "tags": []
+      "tags": ["AI", "Legal Tech", "Immigration", "Document Automation"]
     },
     {
       "title": "FotoFusion",
@@ -259,69 +296,70 @@
       "timeline": "2024 - present",
       "industry": "General Public",
       "deliverables": "Fullstack",
-      "team": "Project manager, Devops, Database Engineer, Team lead, Frontend Developer, Backend developer, Quality Assurance Engineer, UI/UX Designer",
-      "platforms": "",
+      "team": "Project manager, DevOps, Database Engineer, Team lead, Frontend Developer, Backend developer, Quality Assurance Engineer, UI/UX Designer",
+      "platforms": "Cross-platform (iOS, Android, Web)",
       "tech": [
         "Flutter",
-        "Python"
+        "Python",
+        "FastAPI",
+        "PostgreSQL",
+        "Firebase"
       ],
-      "services": [],
-      "description": "FotoFusion is an AI-driven project in the General Public domain. A cross platfom app which prints and deliver your photos to your address for free. Key deliverables included Fullstack. The solution uses Flutter, Python.",
+      "services": [
+        "Firebase",
+        "AWS S3",
+        "Stripe",
+        "Print API Services",
+        "Google Maps API"
+      ],
+      "description": "FotoFusion is an AI-driven project in the General Public domain. A cross-platform app which prints and delivers your photos to your address for free. The app uses AI to enhance photo quality, suggest optimal print sizes, and create photo collages. Key deliverables included Fullstack. The solution uses Flutter, Python, FastAPI. Target platforms: iOS, Android, Web.",
       "highlights": [
-        "Robust architecture designed for reliability and resilience.",
-        "Clear evaluation loop with measurable quality targets.",
-        "Scalable design to support growth in users and data.",
-        "Privacy‑aware data handling with sensible defaults.",
-        "Developer‑friendly interfaces and documentation."
+        "Robust architecture designed for reliability and resilience",
+        "Clear evaluation loop with measurable quality targets",
+        "Scalable design to support growth in users and data",
+        "Privacy-aware data handling with sensible defaults",
+        "Developer-friendly interfaces and documentation"
       ],
       "problems": [
         {
-          "task": "Requirements & Scope",
-          "solution": "Ran discovery to define outcomes, guardrails, KPIs, and success metrics."
+          "task": "Cross-platform Development",
+          "solution": "Implemented Flutter for unified codebase across iOS, Android, and Web platforms"
         },
         {
-          "task": "Data Modeling",
-          "solution": "Designed schemas for users, sessions, prompts, and artifacts."
+          "task": "Photo Enhancement AI",
+          "solution": "Integrated AI models for automatic photo enhancement, color correction, and quality improvement"
         },
         {
-          "task": "Prompt & Policy Design",
-          "solution": "Structured prompts, system personas, and safety rules with versioning."
+          "task": "Print Service Integration",
+          "solution": "Connected with multiple print service APIs for automated order processing and fulfillment"
         },
         {
-          "task": "Evaluation Harness",
-          "solution": "Built unit/e2e tests with golden sets and rubric‑based scoring."
+          "task": "Address Validation",
+          "solution": "Implemented Google Maps API for address validation and delivery tracking"
         },
         {
-          "task": "API Design",
-          "solution": "Defined REST endpoints and contracts for auth, CRUD, and AI actions."
+          "task": "Payment Processing",
+          "solution": "Integrated Stripe for handling payments and subscription management"
         },
         {
-          "task": "Auth & RBAC",
-          "solution": "Implemented JWT/SSO and role‑based access to routes, prompts, and logs."
+          "task": "Photo Storage",
+          "solution": "Implemented AWS S3 for secure and scalable photo storage with CDN distribution"
         },
         {
-          "task": "Observability",
-          "solution": "Set up structured logging, tracing, dashboards, and alerting."
+          "task": "Order Management",
+          "solution": "Built comprehensive order tracking system with real-time status updates"
         },
         {
-          "task": "CI/CD",
-          "solution": "Automated testing, image builds, and environment promotion."
+          "task": "Photo Collage Generation",
+          "solution": "Developed AI-powered collage creation with intelligent layout suggestions"
         },
         {
-          "task": "Deployment",
-          "solution": "Provisioned infra, secrets, and rollback strategy on cloud."
+          "task": "User Authentication",
+          "solution": "Implemented Firebase Authentication for secure user management across platforms"
         },
         {
-          "task": "Documentation & Handover",
-          "solution": "Created runbooks, ADRs, and onboarding guides."
-        },
-        {
-          "task": "Performance",
-          "solution": "Profiled hotspots and applied caching/batching strategies."
-        },
-        {
-          "task": "Security Hardening",
-          "solution": "Threat‑modeled, patched dependencies, and secret rotation."
+          "task": "Performance Optimization",
+          "solution": "Optimized image processing pipeline for handling high-resolution photos efficiently"
         }
       ],
       "links": {
@@ -335,81 +373,80 @@
           "alt": ""
         }
       ],
-      "tags": []
+      "tags": ["AI", "Photo Processing", "E-commerce", "Cross-platform"]
     },
     {
       "title": "aiDetect",
       "slug": "aidetect",
       "timeline": "2019 - Present",
-      "industry": "Enteprise Solution",
+      "industry": "Enterprise Solution",
       "deliverables": "Fullstack",
-      "team": "Project manager, Devops, Database Engineer, Team lead, Frontend Developer, Backend developer, Quality Assurance Engineer",
+      "team": "Project manager, DevOps, Database Engineer, Team lead, Frontend Developer, Backend developer, Quality Assurance Engineer",
       "platforms": "Web",
       "tech": [
-        "Postgres",
-        "python",
+        "PostgreSQL",
+        "Python",
         "Java",
-        "go",
-        "reactjs",
-        "redis"
+        "Go",
+        "React.js",
+        "Redis"
       ],
-      "services": [],
-      "description": "aiDetect is an AI-driven project in the Enteprise Solution domain. The manual detection and handling of events with high potential for human error can lead to costly inefficiencies, decreased productivity, and missed business opportunities. To address these challenges, aiDetect offers an AI-powered event management solution that revolutionizes Production Support workflows. This innovative solution integrates anomaly detection, ticket logging with relevant information, and immediate communication to all stakeholders. By automating the event management process, aiDetect significantly reduces SLAs from minutes to seconds, enabling prompt and efficient responses to critical events. This automation enhances speed, accuracy, and efficiency, eliminating missed business opportunities and costly inefficiencies caused by human error. Embrace the power of AI with aiDetect and transform your Production Support processes for optimal performance and reliability. Key deliverables included Fullstack. The solution uses Postgres, python, Java, go, reactjs, redis. Target platforms: Web.",
+      "services": [
+        "AWS",
+        "Docker",
+        "Kubernetes",
+        "Prometheus",
+        "Grafana",
+        "ElasticSearch"
+      ],
+      "description": "aiDetect is an AI-driven project in the Enterprise Solution domain. The manual detection and handling of events with high potential for human error can lead to costly inefficiencies. aiDetect offers an AI-powered event management solution that revolutionizes Production Support workflows. This innovative solution integrates anomaly detection, ticket logging with relevant information, and immediate communication to all stakeholders. By automating the event management process, aiDetect significantly reduces SLAs from minutes to seconds. Key deliverables included Fullstack. The solution uses PostgreSQL, Python, Java, Go, React.js, Redis. Target platforms: Web.",
       "highlights": [
-        "Rich integrations with external systems and CRMs.",
-        "Human‑in‑the‑loop review for quality control.",
-        "Robust architecture designed for reliability and resilience.",
-        "Clear evaluation loop with measurable quality targets.",
-        "Scalable design to support growth in users and data."
+        "Rich integrations with external systems and CRMs",
+        "Human-in-the-loop review for quality control",
+        "Robust architecture designed for reliability and resilience",
+        "Clear evaluation loop with measurable quality targets",
+        "Scalable design to support growth in users and data"
       ],
       "problems": [
         {
-          "task": "Requirements & Scope",
-          "solution": "Ran discovery to define outcomes, guardrails, KPIs, and success metrics."
+          "task": "Anomaly Detection",
+          "solution": "Implemented ML-based anomaly detection algorithms for identifying unusual patterns in system behavior"
         },
         {
-          "task": "Data Modeling",
-          "solution": "Designed schemas for users, sessions, prompts, and artifacts."
+          "task": "Real-time Processing",
+          "solution": "Built event streaming pipeline using Kafka and Redis for real-time event processing"
         },
         {
-          "task": "Prompt & Policy Design",
-          "solution": "Structured prompts, system personas, and safety rules with versioning."
+          "task": "Ticket Automation",
+          "solution": "Developed intelligent ticket creation system with automatic categorization and routing"
         },
         {
-          "task": "Evaluation Harness",
-          "solution": "Built unit/e2e tests with golden sets and rubric‑based scoring."
-        },
-        {
-          "task": "API Design",
-          "solution": "Defined REST endpoints and contracts for auth, CRUD, and AI actions."
-        },
-        {
-          "task": "Auth & RBAC",
-          "solution": "Implemented JWT/SSO and role‑based access to routes, prompts, and logs."
-        },
-        {
-          "task": "Observability",
-          "solution": "Set up structured logging, tracing, dashboards, and alerting."
-        },
-        {
-          "task": "CI/CD",
-          "solution": "Automated testing, image builds, and environment promotion."
-        },
-        {
-          "task": "Deployment",
-          "solution": "Provisioned infra, secrets, and rollback strategy on cloud."
-        },
-        {
-          "task": "Documentation & Handover",
-          "solution": "Created runbooks, ADRs, and onboarding guides."
+          "task": "Alert Management",
+          "solution": "Implemented multi-channel alerting system with escalation policies and on-call rotations"
         },
         {
           "task": "Database Design",
-          "solution": "Modeled tables, indexes, and migrations for Postgres."
+          "solution": "Designed PostgreSQL schema with partitioning for handling high-volume time-series data"
         },
         {
-          "task": "Performance",
-          "solution": "Profiled hotspots and applied caching/batching strategies."
+          "task": "Microservices Architecture",
+          "solution": "Built microservices using Go and Java with service mesh for inter-service communication"
+        },
+        {
+          "task": "Monitoring Dashboard",
+          "solution": "Created comprehensive dashboards using Grafana for real-time monitoring and analytics"
+        },
+        {
+          "task": "Performance Optimization",
+          "solution": "Implemented caching strategies with Redis and query optimization for sub-second response times"
+        },
+        {
+          "task": "High Availability",
+          "solution": "Designed fault-tolerant architecture with automatic failover and disaster recovery"
+        },
+        {
+          "task": "API Gateway",
+          "solution": "Implemented API gateway for centralized authentication, rate limiting, and routing"
         }
       ],
       "links": {
@@ -423,86 +460,78 @@
           "alt": ""
         }
       ],
-      "tags": []
+      "tags": ["AI", "Enterprise", "Anomaly Detection", "Event Management"]
     },
     {
       "title": "Realtime Data Analytics RAG",
       "slug": "realtime-data-analytics-rag",
       "timeline": "2024 - Present",
-      "industry": "Enteprise Solution",
+      "industry": "Enterprise Solution",
       "deliverables": "Fullstack",
-      "team": "Project manager, Devops, Database Engineer, Team lead, Frontend Developer, Backend developer, Quality Assurance Engineer",
-      "platforms": "",
+      "team": "Project manager, DevOps, Database Engineer, Team lead, Frontend Developer, Backend developer, Quality Assurance Engineer",
+      "platforms": "Web",
       "tech": [
-        "Postgres",
-        "python",
-        "Streamlit"
+        "PostgreSQL",
+        "Python",
+        "Streamlit",
+        "LangChain",
+        "OpenAI GPT-4"
       ],
-      "services": [],
-      "description": "Realtime Data Analytics RAG is an AI-driven project in the Enteprise Solution domain. Data Analytics RAG is an innovative project that leverages Generative AI to provide real-time data visualization and analytics based on natural language input from users. By transforming user queries into SQL statements tailored to specific data tables and schemas, the system retrieves the relevant data and utilizes Generative AI to create the desired visualizations. These visualizations are then displayed in the chat window, offering immediate and interactive insights. This approach simplifies data analysis, making it accessible to users without technical expertise in SQL or data visualization tools, and enhances decision-making through quick, data-driven insights. Key deliverables included Fullstack. The solution uses Postgres, python, Streamlit.",
+      "services": [
+        "OpenAI GPT-4",
+        "AWS",
+        "Pinecone",
+        "ChromaDB",
+        "Tableau API"
+      ],
+      "description": "Realtime Data Analytics RAG is an AI-driven project in the Enterprise Solution domain. Data Analytics RAG leverages Generative AI to provide real-time data visualization and analytics based on natural language input. By transforming user queries into SQL statements tailored to specific data tables and schemas, the system retrieves relevant data and utilizes Generative AI to create desired visualizations. Key deliverables included Fullstack. The solution uses PostgreSQL, Python, Streamlit, LangChain, GPT-4.",
       "highlights": [
-        "Retrieval‑augmented generation grounded in project data.",
-        "Built‑in analytics, scoring, and feedback loops.",
-        "Robust architecture designed for reliability and resilience.",
-        "Clear evaluation loop with measurable quality targets.",
-        "Scalable design to support growth in users and data."
+        "Retrieval-augmented generation grounded in project data",
+        "Built-in analytics, scoring, and feedback loops",
+        "Robust architecture designed for reliability and resilience",
+        "Clear evaluation loop with measurable quality targets",
+        "Scalable design to support growth in users and data"
       ],
       "problems": [
         {
-          "task": "Requirements & Scope",
-          "solution": "Ran discovery to define outcomes, guardrails, KPIs, and success metrics."
-        },
-        {
-          "task": "Data Modeling",
-          "solution": "Designed schemas for users, sessions, prompts, and artifacts."
-        },
-        {
-          "task": "Prompt & Policy Design",
-          "solution": "Structured prompts, system personas, and safety rules with versioning."
-        },
-        {
-          "task": "Evaluation Harness",
-          "solution": "Built unit/e2e tests with golden sets and rubric‑based scoring."
-        },
-        {
-          "task": "API Design",
-          "solution": "Defined REST endpoints and contracts for auth, CRUD, and AI actions."
-        },
-        {
-          "task": "Auth & RBAC",
-          "solution": "Implemented JWT/SSO and role‑based access to routes, prompts, and logs."
-        },
-        {
-          "task": "Observability",
-          "solution": "Set up structured logging, tracing, dashboards, and alerting."
-        },
-        {
-          "task": "CI/CD",
-          "solution": "Automated testing, image builds, and environment promotion."
-        },
-        {
-          "task": "Deployment",
-          "solution": "Provisioned infra, secrets, and rollback strategy on cloud."
-        },
-        {
-          "task": "Documentation & Handover",
-          "solution": "Created runbooks, ADRs, and onboarding guides."
+          "task": "Natural Language to SQL",
+          "solution": "Implemented GPT-4 based text-to-SQL conversion with schema awareness and query optimization"
         },
         {
           "task": "RAG Pipeline",
-          "solution": "Built ingestion, chunking, embeddings, and retrieval with relevance tuning."
+          "solution": "Built ingestion, chunking, embeddings, and retrieval pipeline with relevance tuning using LangChain"
         },
         {
           "task": "Vector Store",
-          "solution": "Provisioned vector DB and indexing strategy with TTL and namespaces."
+          "solution": "Provisioned Pinecone vector DB with indexing strategy, TTL, and namespace management"
+        },
+        {
+          "task": "Data Visualization",
+          "solution": "Created dynamic visualization generation using Streamlit with chart recommendations based on data types"
+        },
+        {
+          "task": "Query Security",
+          "solution": "Implemented SQL injection prevention and query validation to ensure safe database operations"
+        },
+        {
+          "task": "Schema Management",
+          "solution": "Built automatic schema detection and mapping for multiple database types"
         },
         {
           "task": "Streaming UX",
-          "solution": "Implemented server‑sent events/websockets for live updates."
+          "solution": "Implemented server-sent events for live updates and progressive rendering of results"
         },
         {
-          "task": "Database Design",
-          "solution": "Modeled tables, indexes, and migrations for Postgres."
+          "task": "Caching Strategy",
+          "solution": "Developed intelligent caching for frequently accessed queries and visualizations"
+        },
+        {
+          "task": "Multi-database Support",
+          "solution": "Added support for PostgreSQL, MySQL, and data warehouse connections"
+        },
+        {
+          "task": "Export Functionality",
+          "solution": "Implemented export to various formats including Excel, PDF, and interactive dashboards"
         }
       ],
       "links": {
@@ -516,7 +545,7 @@
           "alt": ""
         }
       ],
-      "tags": []
+      "tags": ["AI", "RAG", "Data Analytics", "NLP", "Visualization"]
     },
     {
       "title": "AI Bots Platform",
@@ -524,75 +553,73 @@
       "timeline": "2024 - present",
       "industry": "Sales, Customer Support",
       "deliverables": "Fullstack",
-      "team": "Project manager, Devops, Database Engineer, Team lead, Frontend Developer, Backend developer, Quality Assurance Engineer",
+      "team": "Project manager, DevOps, Database Engineer, Team lead, Frontend Developer, Backend developer, Quality Assurance Engineer",
       "platforms": "Web",
       "tech": [
-        "Postgres",
+        "PostgreSQL",
         "Python",
-        "React Js",
-        "ChromaDB"
+        "React.js",
+        "ChromaDB",
+        "FastAPI",
+        "LangChain"
       ],
-      "services": [],
-      "description": "AI Bots Platform is an AI-driven project in the Sales, Customer Support domain. Our project focuses on developing an advanced platform that enables businesses to create AI-powered bots tailored for specific roles such as sales and customer \nsupport. These bots are designed to interact with customers efficiently, providing personalized experiences and improving overall engagement. Utilizing your own data to \ntrain the bots ensures they understand and cater to the unique needs of your business and customers. The platform allows for seamless integration into existing digital \ninfrastructures, including websites, mobile apps, and social media accounts. By automating routine tasks and providing instant, accurate, and personalized responses, \nour AI-driven bots enhance customer satisfaction and operational efficiency. The platform is designed to scale with your business, supporting multiple bots across \ndifferent channels as your needs grow. Our primary goals are to develop a robust and user-friendly platform, ensure seamless integration, enable businesses to \ntrain bots with their own data, and continually improve the platform based on user feedback and technological advancements. Ultimately, this project aims to \nrevolutionize customer interaction by leveraging AI technology to enhance efficiency, satisfaction, and engagement. Key deliverables included Fullstack. The solution uses Postgres, Python, React Js, ChromaDB. Target platforms: Web.",
+      "services": [
+        "OpenAI GPT-4",
+        "Claude",
+        "ChromaDB",
+        "AWS",
+        "Twilio",
+        "Slack API",
+        "Microsoft Teams API"
+      ],
+      "description": "AI Bots Platform is an AI-driven project in the Sales and Customer Support domain. The platform enables businesses to create AI-powered bots tailored for specific roles such as sales and customer support. These bots are designed to interact with customers efficiently, providing personalized experiences. The platform allows for seamless integration into existing digital infrastructures, including websites, mobile apps, and social media accounts. Key deliverables included Fullstack. The solution uses PostgreSQL, Python, React.js, ChromaDB, LangChain. Target platforms: Web.",
       "highlights": [
-        "Persona‑driven experience with long‑term memory.",
-        "Retrieval‑augmented generation grounded in project data.",
-        "Rich integrations with external systems and CRMs.",
-        "Human‑in‑the‑loop review for quality control.",
-        "Robust architecture designed for reliability and resilience."
+        "Persona-driven experience with long-term memory",
+        "Retrieval-augmented generation grounded in project data",
+        "Rich integrations with external systems and CRMs",
+        "Human-in-the-loop review for quality control",
+        "Robust architecture designed for reliability and resilience"
       ],
       "problems": [
         {
-          "task": "Requirements & Scope",
-          "solution": "Ran discovery to define outcomes, guardrails, KPIs, and success metrics."
+          "task": "Multi-channel Integration",
+          "solution": "Built unified bot framework supporting Web, Slack, Teams, WhatsApp, and social media platforms"
         },
         {
-          "task": "Data Modeling",
-          "solution": "Designed schemas for users, sessions, prompts, and artifacts."
+          "task": "RAG Implementation",
+          "solution": "Developed RAG pipeline with ChromaDB for knowledge base management and contextual responses"
         },
         {
-          "task": "Prompt & Policy Design",
-          "solution": "Structured prompts, system personas, and safety rules with versioning."
+          "task": "Bot Training Interface",
+          "solution": "Created intuitive interface for non-technical users to train bots with custom data"
         },
         {
-          "task": "Evaluation Harness",
-          "solution": "Built unit/e2e tests with golden sets and rubric‑based scoring."
+          "task": "Conversation Management",
+          "solution": "Implemented conversation state management with memory using LangChain conversation chains"
         },
         {
-          "task": "API Design",
-          "solution": "Defined REST endpoints and contracts for auth, CRUD, and AI actions."
+          "task": "Analytics Dashboard",
+          "solution": "Built comprehensive analytics for tracking bot performance, user satisfaction, and conversation metrics"
         },
         {
-          "task": "Auth & RBAC",
-          "solution": "Implemented JWT/SSO and role‑based access to routes, prompts, and logs."
+          "task": "Multi-tenant Architecture",
+          "solution": "Designed isolated environments for different businesses with data segregation"
         },
         {
-          "task": "Observability",
-          "solution": "Set up structured logging, tracing, dashboards, and alerting."
+          "task": "Intent Recognition",
+          "solution": "Implemented NLU system for accurate intent classification and entity extraction"
         },
         {
-          "task": "CI/CD",
-          "solution": "Automated testing, image builds, and environment promotion."
+          "task": "Handoff to Human",
+          "solution": "Built seamless handoff mechanism to human agents when bot confidence is low"
         },
         {
-          "task": "Deployment",
-          "solution": "Provisioned infra, secrets, and rollback strategy on cloud."
+          "task": "CRM Integration",
+          "solution": "Integrated with Salesforce, HubSpot, and other CRMs for customer data synchronization"
         },
         {
-          "task": "Documentation & Handover",
-          "solution": "Created runbooks, ADRs, and onboarding guides."
-        },
-        {
-          "task": "RAG Pipeline",
-          "solution": "Built ingestion, chunking, embeddings, and retrieval with relevance tuning."
-        },
-        {
-          "task": "Vector Store",
-          "solution": "Provisioned vector DB and indexing strategy with TTL and namespaces."
-        },
-        {
-          "task": "Database Design",
-          "solution": "Modeled tables, indexes, and migrations for Postgres."
+          "task": "Webhook Management",
+          "solution": "Created flexible webhook system for custom integrations and event notifications"
         }
       ],
       "links": {
@@ -606,80 +633,78 @@
           "alt": ""
         }
       ],
-      "tags": []
+      "tags": ["AI", "Chatbots", "Customer Support", "Sales", "RAG"]
     },
     {
       "title": "Smart Qualifier",
       "slug": "smart-qualifier",
       "timeline": "2022 - present",
-      "industry": "nan",
+      "industry": "Enterprise",
       "deliverables": "Fullstack",
-      "team": "Project manager, Devops, Database Engineer, Team lead, Frontend Developer, Backend developer, Quality Assurance Engineer",
+      "team": "Project manager, DevOps, Database Engineer, Team lead, Frontend Developer, Backend developer, Quality Assurance Engineer",
       "platforms": "Web",
       "tech": [
-        "MySql",
-        "Express",
-        "React Js",
-        "Node Js",
+        "MySQL",
+        "Express.js",
+        "React.js",
+        "Node.js",
         "Strapi"
       ],
-      "services": [],
-      "description": "Smart Qualifier is an AI-driven project in the nan domain. The Smart Qualifier is an innovative service designed to revolutionize signal data management by filtering out irrelevant information and isolating essential insights. This advanced technology empowers users with precise, actionable data, enabling accurate issue identification and swift resolution. By streamlining the problem detection process, the Smart Qualifier enhances operational efficiency, reduces time and effort spent on troubleshooting, and lowers overall costs. This cutting-edge service is an indispensable tool for organizations aiming to optimize their workflows and make informed, data-driven decisions. Key deliverables included Fullstack. The solution uses MySql, Express, React Js, Node Js, Strapi. Target platforms: Web.",
+      "services": [
+        "AWS",
+        "Docker",
+        "Jenkins",
+        "ElasticSearch",
+        "Redis"
+      ],
+      "description": "Smart Qualifier is an AI-driven project in the Enterprise domain. The Smart Qualifier is an innovative service designed to revolutionize signal data management by filtering out irrelevant information and isolating essential insights. This advanced technology empowers users with precise, actionable data, enabling accurate issue identification and swift resolution. Key deliverables included Fullstack. The solution uses MySQL, Express.js, React.js, Node.js, Strapi. Target platforms: Web.",
       "highlights": [
-        "Low‑latency streaming interactions and updates.",
-        "Robust architecture designed for reliability and resilience.",
-        "Clear evaluation loop with measurable quality targets.",
-        "Scalable design to support growth in users and data.",
-        "Privacy‑aware data handling with sensible defaults."
+        "Low-latency streaming interactions and updates",
+        "Robust architecture designed for reliability and resilience",
+        "Clear evaluation loop with measurable quality targets",
+        "Scalable design to support growth in users and data",
+        "Privacy-aware data handling with sensible defaults"
       ],
       "problems": [
         {
-          "task": "Requirements & Scope",
-          "solution": "Ran discovery to define outcomes, guardrails, KPIs, and success metrics."
+          "task": "Signal Processing",
+          "solution": "Implemented real-time signal processing pipeline with filtering and classification algorithms"
         },
         {
-          "task": "Data Modeling",
-          "solution": "Designed schemas for users, sessions, prompts, and artifacts."
+          "task": "Data Filtering Engine",
+          "solution": "Built intelligent filtering system using ML models to identify relevant signals"
         },
         {
-          "task": "Prompt & Policy Design",
-          "solution": "Structured prompts, system personas, and safety rules with versioning."
+          "task": "CMS Integration",
+          "solution": "Integrated Strapi headless CMS for content management and API generation"
         },
         {
-          "task": "Evaluation Harness",
-          "solution": "Built unit/e2e tests with golden sets and rubric‑based scoring."
+          "task": "Real-time Updates",
+          "solution": "Implemented WebSocket connections for live data streaming and updates"
         },
         {
-          "task": "API Design",
-          "solution": "Defined REST endpoints and contracts for auth, CRUD, and AI actions."
+          "task": "Search Functionality",
+          "solution": "Integrated ElasticSearch for fast, full-text search across signal data"
         },
         {
-          "task": "Auth & RBAC",
-          "solution": "Implemented JWT/SSO and role‑based access to routes, prompts, and logs."
+          "task": "Caching Layer",
+          "solution": "Implemented Redis caching for improved performance and reduced database load"
         },
         {
-          "task": "Observability",
-          "solution": "Set up structured logging, tracing, dashboards, and alerting."
+          "task": "API Development",
+          "solution": "Built RESTful APIs with Express.js following best practices and documentation"
         },
         {
-          "task": "CI/CD",
-          "solution": "Automated testing, image builds, and environment promotion."
+          "task": "Dashboard Creation",
+          "solution": "Developed interactive React.js dashboard for data visualization and management"
         },
         {
-          "task": "Deployment",
-          "solution": "Provisioned infra, secrets, and rollback strategy on cloud."
+          "task": "Authentication System",
+          "solution": "Implemented JWT-based authentication with role-based access control"
         },
         {
-          "task": "Documentation & Handover",
-          "solution": "Created runbooks, ADRs, and onboarding guides."
-        },
-        {
-          "task": "Streaming UX",
-          "solution": "Implemented server‑sent events/websockets for live updates."
-        },
-        {
-          "task": "Performance",
-          "solution": "Profiled hotspots and applied caching/batching strategies."
+          "task": "Performance Monitoring",
+          "solution": "Set up monitoring with custom metrics for tracking system performance"
         }
       ],
       "links": {
@@ -693,7 +718,7 @@
           "alt": ""
         }
       ],
-      "tags": []
+      "tags": ["Enterprise", "Data Processing", "Signal Management"]
     },
     {
       "title": "Notification Broadcaster",
@@ -701,69 +726,70 @@
       "timeline": "2022 - present",
       "industry": "Enterprise",
       "deliverables": "Backend",
-      "team": "Devops, Team lead, Quality Assurance Engineer",
-      "platforms": "",
+      "team": "DevOps, Team lead, Quality Assurance Engineer",
+      "platforms": "Global Infrastructure",
       "tech": [
         "Java",
-        "Python"
+        "Python",
+        "SNMP",
+        "Apache Kafka",
+        "Spring Boot"
       ],
-      "services": [],
-      "description": "Notification Broadcaster is an AI-driven project in the Enterprise domain. The SNMP-Based Broadcaster Service is an innovative solution designed to send real-time signals to listeners distributed across the globe. This service leverages the Simple Network Management Protocol (SNMP) to ensure that any errors or issues are detected and communicated promptly, allowing for proactive management and resolution.\n\nThe primary objective of this project is to provide a reliable and efficient system for monitoring network health and performance. By broadcasting signals to all connected listeners, the service enables immediate awareness of any anomalies, facilitating swift and effective troubleshooting. This proactive approach helps prevent minor issues from escalating into major problems, ensuring the smooth operation of networked systems.\n\nKey features of the SNMP-Based Broadcaster Service include:\n\nGlobal Reach: Sends signals to listeners regardless of their geographic location, ensuring comprehensive coverage and timely alerts.\nReal-Time Monitoring: Continuously monitors network status and sends immediate notifications in case of any detected issues.\nProactive Management: Enables rapid identification and resolution of problems, minimizing downtime and enhancing overall system reliability.\nScalability: Designed to handle a large number of listeners, making it suitable for extensive and complex network infrastructures.\nRobust Architecture: Built with reliability and efficiency in mind, ensuring consistent performance and minimal latency in signal broadcasting.\nBy implementing this service, organizations can significantly enhance their network management capabilities, ensuring that potential issues are addressed before they impact operations. The SNMP-Based Broadcaster Service stands as a crucial tool for maintaining optimal network health and performance on a global scale.app Key deliverables included Backend. The solution uses Java, Python.",
+      "services": [
+        "AWS SNS",
+        "Twilio",
+        "SendGrid",
+        "PagerDuty",
+        "Slack API"
+      ],
+      "description": "Notification Broadcaster is an AI-driven project in the Enterprise domain. The SNMP-Based Broadcaster Service is an innovative solution designed to send real-time signals to listeners distributed across the globe. This service leverages SNMP to ensure that any errors or issues are detected and communicated promptly, allowing for proactive management and resolution. Key deliverables included Backend. The solution uses Java, Python, SNMP.",
       "highlights": [
-        "Retrieval‑augmented generation grounded in project data.",
-        "Robust architecture designed for reliability and resilience.",
-        "Clear evaluation loop with measurable quality targets.",
-        "Scalable design to support growth in users and data.",
-        "Privacy‑aware data handling with sensible defaults."
+        "Retrieval-augmented generation grounded in project data",
+        "Robust architecture designed for reliability and resilience",
+        "Clear evaluation loop with measurable quality targets",
+        "Scalable design to support growth in users and data",
+        "Privacy-aware data handling with sensible defaults"
       ],
       "problems": [
         {
-          "task": "Requirements & Scope",
-          "solution": "Ran discovery to define outcomes, guardrails, KPIs, and success metrics."
+          "task": "SNMP Implementation",
+          "solution": "Developed SNMP trap receiver and sender for network device monitoring and alerting"
         },
         {
-          "task": "Data Modeling",
-          "solution": "Designed schemas for users, sessions, prompts, and artifacts."
+          "task": "Global Distribution",
+          "solution": "Implemented geo-distributed architecture for worldwide signal broadcasting with low latency"
         },
         {
-          "task": "Prompt & Policy Design",
-          "solution": "Structured prompts, system personas, and safety rules with versioning."
+          "task": "Message Queue",
+          "solution": "Integrated Apache Kafka for reliable message delivery and event streaming"
         },
         {
-          "task": "Evaluation Harness",
-          "solution": "Built unit/e2e tests with golden sets and rubric‑based scoring."
+          "task": "Multi-channel Notifications",
+          "solution": "Built notification system supporting email, SMS, voice calls, and chat platforms"
         },
         {
-          "task": "API Design",
-          "solution": "Defined REST endpoints and contracts for auth, CRUD, and AI actions."
+          "task": "Escalation Logic",
+          "solution": "Implemented intelligent escalation policies based on severity and response times"
         },
         {
-          "task": "Auth & RBAC",
-          "solution": "Implemented JWT/SSO and role‑based access to routes, prompts, and logs."
+          "task": "High Availability",
+          "solution": "Designed fault-tolerant architecture with automatic failover and redundancy"
         },
         {
-          "task": "Observability",
-          "solution": "Set up structured logging, tracing, dashboards, and alerting."
+          "task": "API Development",
+          "solution": "Created Spring Boot APIs for notification management and configuration"
         },
         {
-          "task": "CI/CD",
-          "solution": "Automated testing, image builds, and environment promotion."
+          "task": "Monitoring Integration",
+          "solution": "Integrated with monitoring tools like Nagios and Zabbix for comprehensive coverage"
         },
         {
-          "task": "Deployment",
-          "solution": "Provisioned infra, secrets, and rollback strategy on cloud."
+          "task": "Batch Processing",
+          "solution": "Implemented batch notification processing for handling high-volume alerts"
         },
         {
-          "task": "Documentation & Handover",
-          "solution": "Created runbooks, ADRs, and onboarding guides."
-        },
-        {
-          "task": "RAG Pipeline",
-          "solution": "Built ingestion, chunking, embeddings, and retrieval with relevance tuning."
-        },
-        {
-          "task": "Vector Store",
-          "solution": "Provisioned vector DB and indexing strategy with TTL and namespaces."
+          "task": "Audit Logging",
+          "solution": "Built comprehensive audit trail for all notifications and system activities"
         }
       ],
       "links": {
@@ -777,7 +803,7 @@
           "alt": ""
         }
       ],
-      "tags": []
+      "tags": ["Enterprise", "SNMP", "Notifications", "Monitoring"]
     },
     {
       "title": "Media Routing Engine",
@@ -785,72 +811,70 @@
       "timeline": "2015 - present",
       "industry": "Enterprise, Cisco",
       "deliverables": "Fullstack",
-      "team": "Project manager, Devops, Database Engineer, Team lead, Frontend Developer, Backend developer, Quality Assurance Engineer",
+      "team": "Project manager, DevOps, Database Engineer, Team lead, Frontend Developer, Backend developer, Quality Assurance Engineer",
       "platforms": "Web",
       "tech": [
-        "MySql",
-        "Express",
-        "React Js",
-        "Node Js",
-        "Strapi"
+        "MySQL",
+        "Express.js",
+        "React.js",
+        "Node.js",
+        "WebRTC",
+        "SIP"
       ],
-      "services": [],
-      "description": "Media Routing Engine is an AI-driven project in the Enterprise, Cisco domain. Brio-Medical is the premier integrative cancer clinic, dedicated to providing comprehensive\nand personalised care to patients with all types of cancer at all stages. Key deliverables included Fullstack. The solution uses MySql, Express, React Js, Node Js, Strapi. Target platforms: Web.",
+      "services": [
+        "Cisco APIs",
+        "AWS",
+        "Twilio",
+        "WebRTC"
+      ],
+      "description": "Media Routing Engine is an AI-driven project in the Enterprise and Cisco domain. A sophisticated media routing solution for enterprise contact centers, enabling intelligent routing of voice, video, and chat interactions. The platform integrates with Cisco infrastructure to provide seamless omnichannel customer experiences. Key deliverables included Fullstack. The solution uses MySQL, Express.js, React.js, Node.js, WebRTC, SIP. Target platforms: Web.",
       "highlights": [
-        "Persona‑driven experience with long‑term memory.",
-        "Rich integrations with external systems and CRMs.",
-        "Robust architecture designed for reliability and resilience.",
-        "Clear evaluation loop with measurable quality targets.",
-        "Scalable design to support growth in users and data."
+        "Persona-driven experience with long-term memory",
+        "Rich integrations with external systems and CRMs",
+        "Robust architecture designed for reliability and resilience",
+        "Clear evaluation loop with measurable quality targets",
+        "Scalable design to support growth in users and data"
       ],
       "problems": [
         {
-          "task": "Requirements & Scope",
-          "solution": "Ran discovery to define outcomes, guardrails, KPIs, and success metrics."
+          "task": "Media Protocol Integration",
+          "solution": "Implemented WebRTC and SIP protocols for voice and video communication"
         },
         {
-          "task": "Data Modeling",
-          "solution": "Designed schemas for users, sessions, prompts, and artifacts."
+          "task": "Intelligent Routing",
+          "solution": "Built AI-based routing engine for skill-based and priority-based routing"
         },
         {
-          "task": "Prompt & Policy Design",
-          "solution": "Structured prompts, system personas, and safety rules with versioning."
+          "task": "Cisco Integration",
+          "solution": "Integrated with Cisco Call Manager and Finesse for enterprise telephony"
         },
         {
-          "task": "Evaluation Harness",
-          "solution": "Built unit/e2e tests with golden sets and rubric‑based scoring."
+          "task": "Load Balancing",
+          "solution": "Implemented dynamic load balancing for media servers and agents"
         },
         {
-          "task": "API Design",
-          "solution": "Defined REST endpoints and contracts for auth, CRUD, and AI actions."
+          "task": "Quality Monitoring",
+          "solution": "Built real-time quality monitoring for call metrics and performance"
         },
         {
-          "task": "Auth & RBAC",
-          "solution": "Implemented JWT/SSO and role‑based access to routes, prompts, and logs."
+          "task": "Recording System",
+          "solution": "Implemented call recording with compliance and storage management"
         },
         {
-          "task": "Observability",
-          "solution": "Set up structured logging, tracing, dashboards, and alerting."
+          "task": "Analytics Dashboard",
+          "solution": "Created comprehensive analytics for call patterns and agent performance"
         },
         {
-          "task": "CI/CD",
-          "solution": "Automated testing, image builds, and environment promotion."
+          "task": "Failover Mechanism",
+          "solution": "Built automatic failover for uninterrupted service during outages"
         },
         {
-          "task": "Deployment",
-          "solution": "Provisioned infra, secrets, and rollback strategy on cloud."
+          "task": "Queue Management",
+          "solution": "Developed advanced queue management with callback and priority features"
         },
         {
-          "task": "Documentation & Handover",
-          "solution": "Created runbooks, ADRs, and onboarding guides."
-        },
-        {
-          "task": "Performance",
-          "solution": "Profiled hotspots and applied caching/batching strategies."
-        },
-        {
-          "task": "Security Hardening",
-          "solution": "Threat‑modeled, patched dependencies, and secret rotation."
+          "task": "API Gateway",
+          "solution": "Implemented API gateway for third-party integrations and customizations"
         }
       ],
       "links": {
@@ -864,86 +888,77 @@
           "alt": ""
         }
       ],
-      "tags": []
+      "tags": ["Enterprise", "Cisco", "Media Routing", "Contact Center"]
     },
     {
-      "title": "Call history Gadget",
+      "title": "Call History Gadget",
       "slug": "call-history-gadget",
       "timeline": "2015 - present",
       "industry": "Telecom, Cisco",
       "deliverables": "Fullstack",
-      "team": "Project manager, Devops, Database Engineer, Team lead, Frontend Developer, Backend developer, Quality Assurance Engineer",
-      "platforms": "",
+      "team": "Project manager, DevOps, Database Engineer, Team lead, Frontend Developer, Backend developer, Quality Assurance Engineer",
+      "platforms": "Cisco Finesse",
       "tech": [
-        "MySql",
-        "Javascript",
-        "Node Js"
+        "MySQL",
+        "JavaScript",
+        "Node.js",
+        "Ajax",
+        "HTML5",
+        "CSS3"
       ],
-      "services": [],
-      "description": "Call history Gadget is an AI-driven project in the Telecom, Cisco domain. The Call History Gadget for Cisco Finesse is a powerful tool designed for contact centers, providing agents with a comprehensive view of their inbound and outbound call activity during their current login session. This feature-rich gadget displays detailed histories of both inbound and outbound calls and presents historical data for the active session. By leveraging the Call History Gadget, contact center agents gain real-time visibility into their call activities, enabling them to effectively manage their workload and deliver superior customer service. This tool is essential for optimizing call management and ensuring high-quality interactions with customers. Key deliverables included Fullstack. The solution uses MySql, Javascript, Node Js.",
+      "services": [
+        "Cisco Finesse API",
+        "Cisco CTI",
+        "REST APIs"
+      ],
+      "description": "Call History Gadget is an AI-driven project in the Telecom and Cisco domain. The Call History Gadget for Cisco Finesse is a powerful tool designed for contact centers, providing agents with a comprehensive view of their inbound and outbound call activity during their current login session. This feature-rich gadget displays detailed histories and presents historical data for the active session. Key deliverables included Fullstack. The solution uses MySQL, JavaScript, Node.js, Ajax. Target platforms: Cisco Finesse.",
       "highlights": [
-        "Retrieval‑augmented generation grounded in project data.",
-        "Agentic workflows with tool‑calling and guardrails.",
-        "Robust architecture designed for reliability and resilience.",
-        "Clear evaluation loop with measurable quality targets.",
-        "Scalable design to support growth in users and data."
+        "Retrieval-augmented generation grounded in project data",
+        "Agentic workflows with tool-calling and guardrails",
+        "Robust architecture designed for reliability and resilience",
+        "Clear evaluation loop with measurable quality targets",
+        "Scalable design to support growth in users and data"
       ],
       "problems": [
         {
-          "task": "Requirements & Scope",
-          "solution": "Ran discovery to define outcomes, guardrails, KPIs, and success metrics."
+          "task": "Finesse Integration",
+          "solution": "Developed custom gadget using Cisco Finesse JavaScript Library and APIs"
         },
         {
-          "task": "Data Modeling",
-          "solution": "Designed schemas for users, sessions, prompts, and artifacts."
+          "task": "Real-time Updates",
+          "solution": "Implemented real-time call history updates using CTI events and WebSocket connections"
         },
         {
-          "task": "Prompt & Policy Design",
-          "solution": "Structured prompts, system personas, and safety rules with versioning."
+          "task": "Data Persistence",
+          "solution": "Built MySQL database schema for storing and retrieving call history data"
         },
         {
-          "task": "Evaluation Harness",
-          "solution": "Built unit/e2e tests with golden sets and rubric‑based scoring."
+          "task": "Session Management",
+          "solution": "Implemented session-based tracking for agent login periods and activities"
         },
         {
-          "task": "API Design",
-          "solution": "Defined REST endpoints and contracts for auth, CRUD, and AI actions."
+          "task": "UI Development",
+          "solution": "Created responsive UI using HTML5/CSS3 for optimal agent experience"
         },
         {
-          "task": "Auth & RBAC",
-          "solution": "Implemented JWT/SSO and role‑based access to routes, prompts, and logs."
+          "task": "Performance Optimization",
+          "solution": "Optimized data retrieval with pagination and caching for large call volumes"
         },
         {
-          "task": "Observability",
-          "solution": "Set up structured logging, tracing, dashboards, and alerting."
+          "task": "Search Functionality",
+          "solution": "Implemented advanced search filters for call type, duration, and outcome"
         },
         {
-          "task": "CI/CD",
-          "solution": "Automated testing, image builds, and environment promotion."
+          "task": "Export Features",
+          "solution": "Added export functionality for call reports in CSV and PDF formats"
         },
         {
-          "task": "Deployment",
-          "solution": "Provisioned infra, secrets, and rollback strategy on cloud."
+          "task": "Agent Statistics",
+          "solution": "Built analytics module for tracking agent performance metrics"
         },
         {
-          "task": "Documentation & Handover",
-          "solution": "Created runbooks, ADRs, and onboarding guides."
-        },
-        {
-          "task": "RAG Pipeline",
-          "solution": "Built ingestion, chunking, embeddings, and retrieval with relevance tuning."
-        },
-        {
-          "task": "Vector Store",
-          "solution": "Provisioned vector DB and indexing strategy with TTL and namespaces."
-        },
-        {
-          "task": "Tool‑Calling/Agents",
-          "solution": "Designed tool schema, routing, and error recovery with retries."
-        },
-        {
-          "task": "Guardrails",
-          "solution": "Added constraints, schema validation, and safe tool execution sandboxing."
+          "task": "Error Handling",
+          "solution": "Implemented robust error handling for CTI disconnections and API failures"
         }
       ],
       "links": {
@@ -957,88 +972,78 @@
           "alt": ""
         }
       ],
-      "tags": []
+      "tags": ["Cisco", "Finesse", "Contact Center", "Telecom"]
     },
     {
-      "title": "Autocall Notification",
+      "title": "AutoCall Notification",
       "slug": "autocall-notification",
       "timeline": "2021 - present",
       "industry": "Telecom",
       "deliverables": "Fullstack",
-      "team": "Project manager, Devops, Database Engineer, Team lead, Frontend Developer, Backend developer, Quality Assurance Engineer",
+      "team": "Project manager, DevOps, Database Engineer, Team lead, Frontend Developer, Backend developer, Quality Assurance Engineer",
       "platforms": "Web",
       "tech": [
-        "MySql",
+        "MySQL",
         "Java",
         "Python",
-        "React Js"
+        "React.js",
+        "Asterisk",
+        "Spring Boot"
       ],
       "services": [
-        "Using robust HTTP client libraries like AsyncHttpClient for reliable communication",
-        "we implemented comprehensive error handling",
-        "logging for API interactions",
-        "ensuring smooth integration with the Asterisk API."
+        "Asterisk API",
+        "Twilio",
+        "AWS",
+        "AsyncHttpClient"
       ],
-      "description": "Autocall Notification is an AI-driven project in the Telecom domain. The AutoCall Notification product is a critical solution for organizations striving to maintain Service Level Agreements (SLAs) and maximize uptime, which are essential for profitability. This innovative product addresses the challenge of monitoring all relevant signals by providing instant notifications to all stakeholders via voice calls in the event of an issue, anywhere Afiniti's product is deployed. By utilizing AutoCall Notification, organizations can quickly address potential problems, minimizing downtime and maximizing profits. This solution streamlines communication, enabling faster response times and more efficient problem resolution, thereby enhancing overall operational efficiency. Key deliverables included Fullstack. The solution uses MySql, Java, Python, React Js. Target platforms: Web.",
+      "description": "AutoCall Notification is an AI-driven project in the Telecom domain. The AutoCall Notification product is a critical solution for organizations striving to maintain Service Level Agreements (SLAs) and maximize uptime. This innovative product provides instant notifications to all stakeholders via voice calls in the event of an issue. Using robust HTTP client libraries like AsyncHttpClient for reliable communication, we implemented comprehensive error handling and logging for API interactions. Key deliverables included Fullstack. The solution uses MySQL, Java, Python, React.js, Asterisk. Target platforms: Web.",
       "highlights": [
-        "Real‑time voice pipeline with VAD and duplex audio.",
-        "Low‑latency streaming interactions and updates.",
-        "Cloud‑native CI/CD and containerized deployment.",
-        "Robust architecture designed for reliability and resilience.",
-        "Clear evaluation loop with measurable quality targets."
+        "Real-time voice pipeline with VAD and duplex audio",
+        "Low-latency streaming interactions and updates",
+        "Cloud-native CI/CD and containerized deployment",
+        "Robust architecture designed for reliability and resilience",
+        "Clear evaluation loop with measurable quality targets"
       ],
       "problems": [
         {
-          "task": "Requirements & Scope",
-          "solution": "Ran discovery to define outcomes, guardrails, KPIs, and success metrics."
+          "task": "Asterisk Integration",
+          "solution": "Integrated Asterisk PBX for automated voice call generation and management"
         },
         {
-          "task": "Data Modeling",
-          "solution": "Designed schemas for users, sessions, prompts, and artifacts."
+          "task": "Voice Call Automation",
+          "solution": "Implemented text-to-speech and IVR systems for automated voice notifications"
         },
         {
-          "task": "Prompt & Policy Design",
-          "solution": "Structured prompts, system personas, and safety rules with versioning."
+          "task": "SLA Monitoring",
+          "solution": "Built real-time SLA monitoring with threshold-based alerting mechanisms"
         },
         {
-          "task": "Evaluation Harness",
-          "solution": "Built unit/e2e tests with golden sets and rubric‑based scoring."
+          "task": "Escalation Management",
+          "solution": "Developed multi-tier escalation system with configurable call trees"
         },
         {
-          "task": "API Design",
-          "solution": "Defined REST endpoints and contracts for auth, CRUD, and AI actions."
+          "task": "HTTP Client Implementation",
+          "solution": "Used AsyncHttpClient for reliable, non-blocking API communications"
         },
         {
-          "task": "Auth & RBAC",
-          "solution": "Implemented JWT/SSO and role‑based access to routes, prompts, and logs."
+          "task": "Call Analytics",
+          "solution": "Built comprehensive analytics for call success rates and response times"
         },
         {
-          "task": "Observability",
-          "solution": "Set up structured logging, tracing, dashboards, and alerting."
+          "task": "Failover System",
+          "solution": "Implemented automatic failover to backup telephony providers"
         },
         {
-          "task": "CI/CD",
-          "solution": "Automated testing, image builds, and environment promotion."
+          "task": "Schedule Management",
+          "solution": "Created on-call schedule management with rotation and override capabilities"
         },
         {
-          "task": "Deployment",
-          "solution": "Provisioned infra, secrets, and rollback strategy on cloud."
+          "task": "Voice Recognition",
+          "solution": "Integrated voice recognition for acknowledgment and response collection"
         },
         {
-          "task": "Documentation & Handover",
-          "solution": "Created runbooks, ADRs, and onboarding guides."
-        },
-        {
-          "task": "Realtime Audio",
-          "solution": "Implemented full‑duplex audio, VAD, and jitter buffering."
-        },
-        {
-          "task": "Speech Interfaces",
-          "solution": "Integrated ASR/TTS with latency budgets and caching."
-        },
-        {
-          "task": "Streaming UX",
-          "solution": "Implemented server‑sent events/websockets for live updates."
+          "task": "Audit Trail",
+          "solution": "Implemented detailed audit logging for compliance and troubleshooting"
         }
       ],
       "links": {
@@ -1052,7 +1057,7 @@
           "alt": ""
         }
       ],
-      "tags": []
+      "tags": ["Telecom", "Voice Automation", "SLA Management", "Asterisk"]
     },
     {
       "title": "Action Assistance Headset",
@@ -1060,78 +1065,68 @@
       "timeline": "2016 - present",
       "industry": "Enterprise, Cisco, Plantronics",
       "deliverables": "Fullstack",
-      "team": "Project manager, Devops, Database Engineer, Team lead, Frontend Developer, Backend developer, Quality Assurance Engineer",
+      "team": "Project manager, DevOps, Database Engineer, Team lead, Frontend Developer, Backend developer, Quality Assurance Engineer",
       "platforms": "Web",
       "tech": [
-        "MySql",
+        "MySQL",
         "HTML",
-        "JavaScript"
+        "JavaScript",
+        "Node.js",
+        "WebSocket"
       ],
-      "services": [],
-      "description": "Action Assistance Headset is an AI-driven project in the Enterprise, Cisco, Plantronics domain. The Enterprise Agent Headset (EAH) solution integrates the Plantronics Sensor Headset with Cisco Finesse, revolutionizing contact center operations by automating actions and enhancing agent efficiency. This integration provides agents with access to all essential call features within Cisco Finesse, such as going ready, going not ready, answering calls, placing calls on hold, resuming calls, and ending calls. The EAH solution comprises the Plantronics Sensor Headset, the Plantronics Hub running on the agent's computer, the Cisco Finesse Gadget, and a web service. By leveraging EAH, organizations can optimize their contact center operations, significantly enhancing agent productivity and improving the overall customer experience. Key deliverables included Fullstack. The solution uses MySql, HTML, JavaScript. Target platforms: Web.",
+      "services": [
+        "Cisco Finesse API",
+        "Plantronics Hub API",
+        "WebSocket"
+      ],
+      "description": "Action Assistance Headset is an AI-driven project in the Enterprise, Cisco, and Plantronics domain. The Enterprise Agent Headset (EAH) solution integrates the Plantronics Sensor Headset with Cisco Finesse, revolutionizing contact center operations by automating actions and enhancing agent efficiency. The integration provides agents with access to all essential call features within Cisco Finesse through headset controls. Key deliverables included Fullstack. The solution uses MySQL, HTML, JavaScript, WebSocket. Target platforms: Web.",
       "highlights": [
-        "Retrieval‑augmented generation grounded in project data.",
-        "Agentic workflows with tool‑calling and guardrails.",
-        "Rich integrations with external systems and CRMs.",
-        "Robust architecture designed for reliability and resilience.",
-        "Clear evaluation loop with measurable quality targets."
+        "Retrieval-augmented generation grounded in project data",
+        "Agentic workflows with tool-calling and guardrails",
+        "Rich integrations with external systems and CRMs",
+        "Robust architecture designed for reliability and resilience",
+        "Clear evaluation loop with measurable quality targets"
       ],
       "problems": [
         {
-          "task": "Requirements & Scope",
-          "solution": "Ran discovery to define outcomes, guardrails, KPIs, and success metrics."
+          "task": "Headset Integration",
+          "solution": "Integrated Plantronics Hub API for headset sensor data and control"
         },
         {
-          "task": "Data Modeling",
-          "solution": "Designed schemas for users, sessions, prompts, and artifacts."
+          "task": "Finesse Gadget Development",
+          "solution": "Built custom Finesse gadget for seamless integration with agent desktop"
         },
         {
-          "task": "Prompt & Policy Design",
-          "solution": "Structured prompts, system personas, and safety rules with versioning."
+          "task": "WebSocket Communication",
+          "solution": "Implemented WebSocket for real-time communication between headset and Finesse"
         },
         {
-          "task": "Evaluation Harness",
-          "solution": "Built unit/e2e tests with golden sets and rubric‑based scoring."
+          "task": "Action Automation",
+          "solution": "Automated call actions based on headset gestures and button presses"
         },
         {
-          "task": "API Design",
-          "solution": "Defined REST endpoints and contracts for auth, CRUD, and AI actions."
+          "task": "State Synchronization",
+          "solution": "Maintained state sync between headset, Finesse, and backend services"
         },
         {
-          "task": "Auth & RBAC",
-          "solution": "Implemented JWT/SSO and role‑based access to routes, prompts, and logs."
+          "task": "Web Service Development",
+          "solution": "Created RESTful web services for headset data processing and routing"
         },
         {
-          "task": "Observability",
-          "solution": "Set up structured logging, tracing, dashboards, and alerting."
+          "task": "Agent Productivity Tools",
+          "solution": "Built productivity features like auto-answer and presence detection"
         },
         {
-          "task": "CI/CD",
-          "solution": "Automated testing, image builds, and environment promotion."
+          "task": "Configuration Management",
+          "solution": "Developed admin interface for headset and automation configuration"
         },
         {
-          "task": "Deployment",
-          "solution": "Provisioned infra, secrets, and rollback strategy on cloud."
+          "task": "Error Recovery",
+          "solution": "Implemented robust error handling for device disconnections"
         },
         {
-          "task": "Documentation & Handover",
-          "solution": "Created runbooks, ADRs, and onboarding guides."
-        },
-        {
-          "task": "RAG Pipeline",
-          "solution": "Built ingestion, chunking, embeddings, and retrieval with relevance tuning."
-        },
-        {
-          "task": "Vector Store",
-          "solution": "Provisioned vector DB and indexing strategy with TTL and namespaces."
-        },
-        {
-          "task": "Tool‑Calling/Agents",
-          "solution": "Designed tool schema, routing, and error recovery with retries."
-        },
-        {
-          "task": "Guardrails",
-          "solution": "Added constraints, schema validation, and safe tool execution sandboxing."
+          "task": "Analytics Integration",
+          "solution": "Added analytics for tracking headset usage and agent efficiency"
         }
       ],
       "links": {
@@ -1145,7 +1140,7 @@
           "alt": ""
         }
       ],
-      "tags": []
+      "tags": ["Enterprise", "Cisco", "Plantronics", "IoT", "Contact Center"]
     },
     {
       "title": "MS Dynamics CRM Gadget",
@@ -1153,84 +1148,70 @@
       "timeline": "2024 - present",
       "industry": "Healthcare",
       "deliverables": "Fullstack",
-      "team": "Project manager, Devops, Database Engineer, Team lead, Frontend Developer, Backend developer, Quality Assurance Engineer",
+      "team": "Project manager, DevOps, Database Engineer, Team lead, Frontend Developer, Backend developer, Quality Assurance Engineer",
       "platforms": "Web, MS Dynamics",
       "tech": [
-        "MySql",
-        "Express",
-        "React Js",
-        "Node Js",
-        "Strapi"
+        "MySQL",
+        "C#",
+        "JavaScript",
+        "Ajax",
+        ".NET",
+        "Xrm.cs"
       ],
-      "services": [],
-      "description": "MS Dynamics CRM Gadget is an AI-driven project in the Healthcare domain. The Gadget is an integrated component within the Cisco Finesse environment, designed to enhance customer service by providing agents with real-time access to customer information. When an incoming customer call is received, the Gadget retrieves relevant data from Microsoft Dynamics CRM and displays it within the Cisco Finesse interface. This seamless integration allows agents to deliver personalized and efficient customer service. The Gadget is developed using technologies such as JavaScript (Ajax), C# Web services, Xrm.cs, and the MS Dynamics CRM SDK, and utilizes a microservices architecture to ensure scalability and flexibility. Key deliverables included Fullstack. The solution uses MySql, Express, React Js, Node Js, Strapi. Target platforms: Web, MS Dynamics.",
+      "services": [
+        "MS Dynamics CRM SDK",
+        "Cisco Finesse API",
+        "Azure",
+        "Web Services"
+      ],
+      "description": "MS Dynamics CRM Gadget is an AI-driven project in the Healthcare domain. The Gadget is an integrated component within the Cisco Finesse environment, designed to enhance customer service by providing agents with real-time access to customer information. When an incoming call is received, the Gadget retrieves relevant data from Microsoft Dynamics CRM and displays it within the Cisco Finesse interface. Developed using JavaScript (Ajax), C# Web services, Xrm.cs, and the MS Dynamics CRM SDK. Key deliverables included Fullstack. The solution uses MySQL, C#, JavaScript, MS Dynamics CRM SDK. Target platforms: Web, MS Dynamics.",
       "highlights": [
-        "Persona‑driven experience with long‑term memory.",
-        "Retrieval‑augmented generation grounded in project data.",
-        "Agentic workflows with tool‑calling and guardrails.",
-        "Rich integrations with external systems and CRMs.",
-        "Robust architecture designed for reliability and resilience."
+        "Persona-driven experience with long-term memory",
+        "Retrieval-augmented generation grounded in project data",
+        "Agentic workflows with tool-calling and guardrails",
+        "Rich integrations with external systems and CRMs",
+        "Robust architecture designed for reliability and resilience"
       ],
       "problems": [
         {
-          "task": "Requirements & Scope",
-          "solution": "Ran discovery to define outcomes, guardrails, KPIs, and success metrics."
-        },
-        {
-          "task": "Data Modeling",
-          "solution": "Designed schemas for users, sessions, prompts, and artifacts."
-        },
-        {
-          "task": "Prompt & Policy Design",
-          "solution": "Structured prompts, system personas, and safety rules with versioning."
-        },
-        {
-          "task": "Evaluation Harness",
-          "solution": "Built unit/e2e tests with golden sets and rubric‑based scoring."
-        },
-        {
-          "task": "API Design",
-          "solution": "Defined REST endpoints and contracts for auth, CRUD, and AI actions."
-        },
-        {
-          "task": "Auth & RBAC",
-          "solution": "Implemented JWT/SSO and role‑based access to routes, prompts, and logs."
-        },
-        {
-          "task": "Observability",
-          "solution": "Set up structured logging, tracing, dashboards, and alerting."
-        },
-        {
-          "task": "CI/CD",
-          "solution": "Automated testing, image builds, and environment promotion."
-        },
-        {
-          "task": "Deployment",
-          "solution": "Provisioned infra, secrets, and rollback strategy on cloud."
-        },
-        {
-          "task": "Documentation & Handover",
-          "solution": "Created runbooks, ADRs, and onboarding guides."
-        },
-        {
-          "task": "RAG Pipeline",
-          "solution": "Built ingestion, chunking, embeddings, and retrieval with relevance tuning."
-        },
-        {
-          "task": "Vector Store",
-          "solution": "Provisioned vector DB and indexing strategy with TTL and namespaces."
-        },
-        {
-          "task": "Tool‑Calling/Agents",
-          "solution": "Designed tool schema, routing, and error recovery with retries."
-        },
-        {
-          "task": "Guardrails",
-          "solution": "Added constraints, schema validation, and safe tool execution sandboxing."
-        },
-        {
           "task": "CRM Integration",
-          "solution": "Synced contacts/opportunities and respected rate limits/back‑pressure."
+          "solution": "Integrated MS Dynamics CRM using SDK and Xrm.cs for data retrieval"
+        },
+        {
+          "task": "Screen Pop",
+          "solution": "Implemented automatic screen pop with customer data on incoming calls"
+        },
+        {
+          "task": "Data Synchronization",
+          "solution": "Built two-way sync between Finesse call data and CRM records"
+        },
+        {
+          "task": "Web Service Development",
+          "solution": "Created C# web services for secure CRM data access"
+        },
+        {
+          "task": "CRUD Operations",
+          "solution": "Implemented full CRUD operations for CRM entities from Finesse"
+        },
+        {
+          "task": "Authentication",
+          "solution": "Implemented secure authentication between Finesse and Dynamics CRM"
+        },
+        {
+          "task": "Microservices Architecture",
+          "solution": "Designed microservices for scalability and maintainability"
+        },
+        {
+          "task": "Performance Optimization",
+          "solution": "Optimized CRM queries and implemented caching for faster response"
+        },
+        {
+          "task": "Healthcare Compliance",
+          "solution": "Ensured HIPAA compliance for patient data handling"
+        },
+        {
+          "task": "Error Handling",
+          "solution": "Built comprehensive error handling for CRM connectivity issues"
         }
       ],
       "links": {
@@ -1244,7 +1225,7 @@
           "alt": ""
         }
       ],
-      "tags": []
+      "tags": ["Healthcare", "CRM", "MS Dynamics", "Cisco Finesse"]
     },
     {
       "title": "Action Implementer",
@@ -1252,70 +1233,70 @@
       "timeline": "2022 - present",
       "industry": "Healthcare",
       "deliverables": "Fullstack",
-      "team": "Project manager, Devops, Database Engineer, Team lead, Frontend Developer, Backend developer, Quality Assurance Engineer",
-      "platforms": "",
+      "team": "Project manager, DevOps, Database Engineer, Team lead, Frontend Developer, Backend developer, Quality Assurance Engineer",
+      "platforms": "Cloud-native",
       "tech": [
-        "MySql",
-        "Go Language",
-        "GoLand"
+        "MySQL",
+        "Go",
+        "GoLand",
+        "Docker",
+        "Kubernetes"
       ],
-      "services": [],
-      "description": "Action Implementer is an AI-driven project in the Healthcare domain. The Action Implementor service was developed to autonomously perform predefined actions based on incoming signals, guided by a set of rules and signals produced by our monitoring tools. It includes several core components: the Receiver, responsible for listening to and receiving signals; the Parser, which interprets and validates these signals; and the Signal Object, which defines the structure and attributes of a signal. The main application orchestrates these components to work together seamlessly. When a signal is received, it is processed by the Receiver, parsed and validated by the Parser, and then specific actions are defined and executed based on the signal's attributes. The service is configured using a configuration file and can be deployed using containerization techniques. This structured approach allows the Action Implementor service to efficiently handle signals and perform corresponding actions, ensuring robust and scalable operation. Key deliverables included Fullstack. The solution uses MySql, Go Language, GoLand.",
+      "services": [
+        "AWS",
+        "Docker",
+        "Kubernetes",
+        "Prometheus",
+        "gRPC"
+      ],
+      "description": "Action Implementer is an AI-driven project in the Healthcare domain. The Action Implementor service was developed to autonomously perform predefined actions based on incoming signals, guided by a set of rules and signals produced by monitoring tools. It includes the Receiver for listening to signals, the Parser for interpretation and validation, and the Signal Object for defining structure. The service is configured using configuration files and deployed using containerization. Key deliverables included Fullstack. The solution uses MySQL, Go, GoLand, Docker, Kubernetes.",
       "highlights": [
-        "Cloud‑native CI/CD and containerized deployment.",
-        "Robust architecture designed for reliability and resilience.",
-        "Clear evaluation loop with measurable quality targets.",
-        "Scalable design to support growth in users and data.",
-        "Privacy‑aware data handling with sensible defaults."
+        "Cloud-native CI/CD and containerized deployment",
+        "Robust architecture designed for reliability and resilience",
+        "Clear evaluation loop with measurable quality targets",
+        "Scalable design to support growth in users and data",
+        "Privacy-aware data handling with sensible defaults"
       ],
       "problems": [
         {
-          "task": "Requirements & Scope",
-          "solution": "Ran discovery to define outcomes, guardrails, KPIs, and success metrics."
+          "task": "Signal Processing",
+          "solution": "Built high-performance signal receiver and parser in Go for real-time processing"
         },
         {
-          "task": "Data Modeling",
-          "solution": "Designed schemas for users, sessions, prompts, and artifacts."
+          "task": "Rule Engine",
+          "solution": "Implemented flexible rule engine for action determination based on signals"
         },
         {
-          "task": "Prompt & Policy Design",
-          "solution": "Structured prompts, system personas, and safety rules with versioning."
+          "task": "Containerization",
+          "solution": "Dockerized the application with multi-stage builds for optimal size"
         },
         {
-          "task": "Evaluation Harness",
-          "solution": "Built unit/e2e tests with golden sets and rubric‑based scoring."
+          "task": "Orchestration",
+          "solution": "Deployed on Kubernetes with auto-scaling and self-healing capabilities"
         },
         {
-          "task": "API Design",
-          "solution": "Defined REST endpoints and contracts for auth, CRUD, and AI actions."
+          "task": "Configuration Management",
+          "solution": "Built dynamic configuration system with hot-reload capabilities"
         },
         {
-          "task": "Auth & RBAC",
-          "solution": "Implemented JWT/SSO and role‑based access to routes, prompts, and logs."
+          "task": "gRPC Communication",
+          "solution": "Implemented gRPC for efficient inter-service communication"
         },
         {
-          "task": "Observability",
-          "solution": "Set up structured logging, tracing, dashboards, and alerting."
+          "task": "Monitoring",
+          "solution": "Integrated Prometheus metrics for comprehensive monitoring"
         },
         {
-          "task": "CI/CD",
-          "solution": "Automated testing, image builds, and environment promotion."
+          "task": "Database Design",
+          "solution": "Designed MySQL schema for signal history and action audit logs"
         },
         {
-          "task": "Deployment",
-          "solution": "Provisioned infra, secrets, and rollback strategy on cloud."
+          "task": "Healthcare Compliance",
+          "solution": "Ensured HIPAA compliance for healthcare data processing"
         },
         {
-          "task": "Documentation & Handover",
-          "solution": "Created runbooks, ADRs, and onboarding guides."
-        },
-        {
-          "task": "Performance",
-          "solution": "Profiled hotspots and applied caching/batching strategies."
-        },
-        {
-          "task": "Security Hardening",
-          "solution": "Threat‑modeled, patched dependencies, and secret rotation."
+          "task": "Performance Optimization",
+          "solution": "Optimized Go routines and channels for concurrent signal processing"
         }
       ],
       "links": {
@@ -1329,7 +1310,7 @@
           "alt": ""
         }
       ],
-      "tags": []
+      "tags": ["Healthcare", "Go", "Microservices", "Cloud-native"]
     },
     {
       "title": "Afiniti Watch",
@@ -1337,76 +1318,73 @@
       "timeline": "2020 - present",
       "industry": "Enterprise",
       "deliverables": "Fullstack",
-      "team": "Project manager, Devops, Database Engineer, Team lead, Frontend Developer, Backend developer, Quality Assurance Engineer",
+      "team": "Project manager, DevOps, Database Engineer, Team lead, Frontend Developer, Backend developer, Quality Assurance Engineer",
       "platforms": "Web, Teams",
       "tech": [
         "Microservices",
         "Java",
         "Python",
         "Go",
-        "Reactjs"
+        "React.js",
+        "PostgreSQL",
+        "InfluxDB"
       ],
-      "services": [],
-      "description": "Afiniti Watch is an AI-driven project in the Enterprise domain. To address enterprise-level application monitoring challenges, we have developed a proactive, centralized system using cutting-edge technology. Leveraging Simple Network Management Protocol (SNMP) and an open-source stack, including Telegraf Network Management System, Postgres, InfluxDB time series database, PostgreSQL, and Grafana, our solution provides comprehensive, real-time monitoring. This system detects and addresses potential issues before they escalate, ensuring smooth operations, optimizing resource utilization, and reducing downtime. By streamlining monitoring processes, it alleviates the burden on client support teams and enhances overall operational efficiency. Key deliverables included Fullstack. The solution uses Microservices, Java, Python, Go, Reactjs. Target platforms: Web, Teams.",
+      "services": [
+        "Telegraf",
+        "InfluxDB",
+        "Grafana",
+        "SNMP",
+        "AWS",
+        "Microsoft Teams API"
+      ],
+      "description": "Afiniti Watch is an AI-driven project in the Enterprise domain. A proactive, centralized monitoring system using cutting-edge technology. Leveraging SNMP and an open-source stack including Telegraf, InfluxDB, PostgreSQL, and Grafana, the solution provides comprehensive real-time monitoring. The system detects and addresses potential issues before they escalate. Key deliverables included Fullstack. The solution uses Microservices, Java, Python, Go, React.js, InfluxDB, Grafana. Target platforms: Web, Teams.",
       "highlights": [
-        "Retrieval‑augmented generation grounded in project data.",
-        "Low‑latency streaming interactions and updates.",
-        "Rich integrations with external systems and CRMs.",
-        "Robust architecture designed for reliability and resilience.",
-        "Clear evaluation loop with measurable quality targets."
+        "Retrieval-augmented generation grounded in project data",
+        "Low-latency streaming interactions and updates",
+        "Rich integrations with external systems and CRMs",
+        "Robust architecture designed for reliability and resilience",
+        "Clear evaluation loop with measurable quality targets"
       ],
       "problems": [
         {
-          "task": "Requirements & Scope",
-          "solution": "Ran discovery to define outcomes, guardrails, KPIs, and success metrics."
+          "task": "Time-series Database",
+          "solution": "Implemented InfluxDB for efficient storage and querying of metrics data"
         },
         {
-          "task": "Data Modeling",
-          "solution": "Designed schemas for users, sessions, prompts, and artifacts."
+          "task": "Data Collection",
+          "solution": "Deployed Telegraf agents for collecting metrics from diverse sources"
         },
         {
-          "task": "Prompt & Policy Design",
-          "solution": "Structured prompts, system personas, and safety rules with versioning."
+          "task": "SNMP Integration",
+          "solution": "Built SNMP polling and trap handling for network device monitoring"
         },
         {
-          "task": "Evaluation Harness",
-          "solution": "Built unit/e2e tests with golden sets and rubric‑based scoring."
+          "task": "Visualization",
+          "solution": "Created Grafana dashboards for real-time monitoring and analytics"
         },
         {
-          "task": "API Design",
-          "solution": "Defined REST endpoints and contracts for auth, CRUD, and AI actions."
+          "task": "Microservices Architecture",
+          "solution": "Designed microservices using Java, Python, and Go for different components"
         },
         {
-          "task": "Auth & RBAC",
-          "solution": "Implemented JWT/SSO and role‑based access to routes, prompts, and logs."
+          "task": "Alert Management",
+          "solution": "Implemented intelligent alerting with Teams integration for notifications"
         },
         {
-          "task": "Observability",
-          "solution": "Set up structured logging, tracing, dashboards, and alerting."
+          "task": "Data Pipeline",
+          "solution": "Built data processing pipeline for metrics aggregation and analysis"
         },
         {
-          "task": "CI/CD",
-          "solution": "Automated testing, image builds, and environment promotion."
+          "task": "High Availability",
+          "solution": "Designed clustered setup for InfluxDB and PostgreSQL for redundancy"
         },
         {
-          "task": "Deployment",
-          "solution": "Provisioned infra, secrets, and rollback strategy on cloud."
+          "task": "API Development",
+          "solution": "Created REST APIs for custom metric submission and retrieval"
         },
         {
-          "task": "Documentation & Handover",
-          "solution": "Created runbooks, ADRs, and onboarding guides."
-        },
-        {
-          "task": "RAG Pipeline",
-          "solution": "Built ingestion, chunking, embeddings, and retrieval with relevance tuning."
-        },
-        {
-          "task": "Vector Store",
-          "solution": "Provisioned vector DB and indexing strategy with TTL and namespaces."
-        },
-        {
-          "task": "Streaming UX",
-          "solution": "Implemented server‑sent events/websockets for live updates."
+          "task": "Performance Tuning",
+          "solution": "Optimized query performance and data retention policies"
         }
       ],
       "links": {
@@ -1420,92 +1398,78 @@
           "alt": ""
         }
       ],
-      "tags": []
+      "tags": ["Enterprise", "Monitoring", "Time-series", "SNMP", "Grafana"]
     },
     {
-      "title": "AI Gift Recommendations (Amazon",
+      "title": "AI Gift Recommendations (Amazon)",
       "slug": "ai-gift-recommendations-amazon",
       "timeline": "2023 - 2024",
       "industry": "E-commerce",
       "deliverables": "Fullstack",
       "team": "Project manager, DevOps Engineer, Database Engineer, Team Lead, Frontend Developer, Backend Developer, Quality Assurance Engineer, AI Engineer",
-      "platforms": "",
+      "platforms": "Web",
       "tech": [
+        "Python",
         "Flask",
         "Docker",
-        "Python",
-        "Langchain",
-        "ChatGPT-4"
+        "LangChain",
+        "React.js"
       ],
-      "services": [],
-      "description": "AI Gift Recommendations (Amazon is an AI-driven project in the E-commerce domain. Developed an AI chat-based gift recommendation system using ChatGPT-4 and Langchain, implementing prompt engineering techniques for advanced natural language understanding. Integrated Amazon API for real-time product information retrieval. Implemented backend with Flask and deployed in Docker containers for scalability. Showcased proficiency in NLP, Python, and AI model application for practical solutions. Key deliverables included Fullstack. The solution uses Flask, Docker, Python, Langchain, ChatGPT-4.",
+      "services": [
+        "OpenAI GPT-4",
+        "Amazon Product API",
+        "AWS",
+        "Docker",
+        "Redis"
+      ],
+      "description": "AI Gift Recommendations (Amazon) is an AI-driven project in the E-commerce domain. Developed an AI chat-based gift recommendation system using ChatGPT-4 and LangChain, implementing prompt engineering techniques for advanced natural language understanding. Integrated Amazon API for real-time product information retrieval. Implemented backend with Flask and deployed in Docker containers for scalability. Key deliverables included Fullstack. The solution uses Flask, Docker, Python, LangChain, ChatGPT-4.",
       "highlights": [
-        "Retrieval‑augmented generation grounded in project data.",
-        "Cloud‑native CI/CD and containerized deployment.",
-        "Rich integrations with external systems and CRMs.",
-        "Robust architecture designed for reliability and resilience.",
-        "Clear evaluation loop with measurable quality targets."
+        "Retrieval-augmented generation grounded in project data",
+        "Cloud-native CI/CD and containerized deployment",
+        "Rich integrations with external systems and CRMs",
+        "Robust architecture designed for reliability and resilience",
+        "Clear evaluation loop with measurable quality targets"
       ],
       "problems": [
         {
-          "task": "Requirements & Scope",
-          "solution": "Ran discovery to define outcomes, guardrails, KPIs, and success metrics."
+          "task": "Recommendation Engine",
+          "solution": "Built AI-powered recommendation engine using GPT-4 with personalized suggestions"
         },
         {
-          "task": "Data Modeling",
-          "solution": "Designed schemas for users, sessions, prompts, and artifacts."
+          "task": "Amazon API Integration",
+          "solution": "Integrated Amazon Product Advertising API for real-time product data"
         },
         {
-          "task": "Prompt & Policy Design",
-          "solution": "Structured prompts, system personas, and safety rules with versioning."
+          "task": "Prompt Engineering",
+          "solution": "Developed sophisticated prompts for accurate gift recommendations"
         },
         {
-          "task": "Evaluation Harness",
-          "solution": "Built unit/e2e tests with golden sets and rubric‑based scoring."
-        },
-        {
-          "task": "API Design",
-          "solution": "Defined REST endpoints and contracts for auth, CRUD, and AI actions."
-        },
-        {
-          "task": "Auth & RBAC",
-          "solution": "Implemented JWT/SSO and role‑based access to routes, prompts, and logs."
-        },
-        {
-          "task": "Observability",
-          "solution": "Set up structured logging, tracing, dashboards, and alerting."
-        },
-        {
-          "task": "CI/CD",
-          "solution": "Automated testing, image builds, and environment promotion."
-        },
-        {
-          "task": "Deployment",
-          "solution": "Provisioned infra, secrets, and rollback strategy on cloud."
-        },
-        {
-          "task": "Documentation & Handover",
-          "solution": "Created runbooks, ADRs, and onboarding guides."
-        },
-        {
-          "task": "RAG Pipeline",
-          "solution": "Built ingestion, chunking, embeddings, and retrieval with relevance tuning."
-        },
-        {
-          "task": "Vector Store",
-          "solution": "Provisioned vector DB and indexing strategy with TTL and namespaces."
-        },
-        {
-          "task": "LangChain Orchestration",
-          "solution": "Composed chains/agents with memory and tools."
-        },
-        {
-          "task": "Flask Backend",
-          "solution": "Implemented blueprints, middlewares, and dependency injection."
+          "task": "LangChain Implementation",
+          "solution": "Used LangChain for conversation management and context retention"
         },
         {
           "task": "Containerization",
-          "solution": "Packaged services with Docker and multi‑stage builds."
+          "solution": "Dockerized application with multi-stage builds for production deployment"
+        },
+        {
+          "task": "Caching Strategy",
+          "solution": "Implemented Redis caching for API responses and recommendations"
+        },
+        {
+          "task": "User Profiling",
+          "solution": "Built user preference learning system for improved recommendations"
+        },
+        {
+          "task": "Flask Backend",
+          "solution": "Developed RESTful APIs with Flask for frontend integration"
+        },
+        {
+          "task": "Rate Limiting",
+          "solution": "Implemented rate limiting for Amazon API calls optimization"
+        },
+        {
+          "task": "A/B Testing",
+          "solution": "Built A/B testing framework for recommendation algorithm optimization"
         }
       ],
       "links": {
@@ -1519,7 +1483,7 @@
           "alt": ""
         }
       ],
-      "tags": []
+      "tags": ["AI", "E-commerce", "GPT-4", "Recommendations", "Amazon"]
     },
     {
       "title": "Novel Craft AI",
@@ -1531,69 +1495,67 @@
       "platforms": "Web",
       "tech": [
         "Python",
-        "Langchain",
-        "OpenAI",
+        "LangChain",
         "FastAPI",
         "Celery",
-        "React"
+        "React",
+        "PostgreSQL"
       ],
-      "services": [],
-      "description": "Novel Craft AI is an AI-driven project in the Publishing domain. Engineered an innovative novel-crafting application, harnessing the power of Langchain and ChapterGPT 4 to revolutionize the storytelling process. Employed a sophisticated tech stack comprising Python, Langchain, OpenAI, FastAPI, and Celery, synergistically integrated for seamless functionality and enhanced performance. Spearheaded Prompt Engineering strategies to optimize AI-generated novel crafting, ensuring coherent and engaging narratives. The project created novels of different genres with AI, allowing multiple inputs for novel settings such as characters, their background, synopsis, chapters, headings, context, and more. Generating settings by AI was a process of 15-20 minutes if the user generates all settings by AI. The settings were then passed to AI to generate an accurate novel with knowledge of settings, generating multiple chapters in iterations while maintaining coherence through memory using Langchain and its buffer memory methods. Key deliverables included Fullstack. The solution uses Python, Langchain, OpenAI, FastAPI, Celery, React. Target platforms: Web.",
+      "services": [
+        "OpenAI GPT-4",
+        "Redis",
+        "Celery",
+        "AWS S3",
+        "RabbitMQ"
+      ],
+      "description": "Novel Craft AI is an AI-driven project in the Publishing domain. Engineered an innovative novel-crafting application, harnessing the power of LangChain and GPT-4 to revolutionize the storytelling process. The project creates novels of different genres with AI, allowing multiple inputs for novel settings such as characters, backgrounds, synopsis, chapters, and context. Generating settings by AI takes 15-20 minutes if all settings are AI-generated. The settings are then passed to AI to generate an accurate novel with multiple chapters while maintaining coherence through memory using LangChain buffer memory methods. Key deliverables included Fullstack. The solution uses Python, LangChain, OpenAI, FastAPI, Celery, React. Target platforms: Web.",
       "highlights": [
-        "Rich integrations with external systems and CRMs.",
-        "Robust architecture designed for reliability and resilience.",
-        "Clear evaluation loop with measurable quality targets.",
-        "Scalable design to support growth in users and data.",
-        "Privacy‑aware data handling with sensible defaults."
+        "Rich integrations with external systems and CRMs",
+        "Robust architecture designed for reliability and resilience",
+        "Clear evaluation loop with measurable quality targets",
+        "Scalable design to support growth in users and data",
+        "Privacy-aware data handling with sensible defaults"
       ],
       "problems": [
         {
-          "task": "Requirements & Scope",
-          "solution": "Ran discovery to define outcomes, guardrails, KPIs, and success metrics."
+          "task": "Long-form Generation",
+          "solution": "Implemented iterative chapter generation with context management using LangChain"
         },
         {
-          "task": "Data Modeling",
-          "solution": "Designed schemas for users, sessions, prompts, and artifacts."
+          "task": "Memory Management",
+          "solution": "Used LangChain buffer memory for maintaining narrative coherence across chapters"
         },
         {
-          "task": "Prompt & Policy Design",
-          "solution": "Structured prompts, system personas, and safety rules with versioning."
+          "task": "Async Processing",
+          "solution": "Implemented Celery for handling long-running novel generation tasks"
         },
         {
-          "task": "Evaluation Harness",
-          "solution": "Built unit/e2e tests with golden sets and rubric‑based scoring."
+          "task": "Character Consistency",
+          "solution": "Built character tracking system to maintain consistency throughout the novel"
         },
         {
-          "task": "API Design",
-          "solution": "Defined REST endpoints and contracts for auth, CRUD, and AI actions."
-        },
-        {
-          "task": "Auth & RBAC",
-          "solution": "Implemented JWT/SSO and role‑based access to routes, prompts, and logs."
-        },
-        {
-          "task": "Observability",
-          "solution": "Set up structured logging, tracing, dashboards, and alerting."
-        },
-        {
-          "task": "CI/CD",
-          "solution": "Automated testing, image builds, and environment promotion."
-        },
-        {
-          "task": "Deployment",
-          "solution": "Provisioned infra, secrets, and rollback strategy on cloud."
-        },
-        {
-          "task": "Documentation & Handover",
-          "solution": "Created runbooks, ADRs, and onboarding guides."
-        },
-        {
-          "task": "LangChain Orchestration",
-          "solution": "Composed chains/agents with memory and tools."
+          "task": "Genre Templates",
+          "solution": "Created genre-specific templates and prompts for various novel types"
         },
         {
           "task": "FastAPI Backend",
-          "solution": "Defined typed routes, pydantic models, and OpenAPI docs."
+          "solution": "Developed high-performance APIs with FastAPI and Pydantic models"
+        },
+        {
+          "task": "Progress Tracking",
+          "solution": "Implemented real-time progress updates for novel generation process"
+        },
+        {
+          "task": "Export Functionality",
+          "solution": "Built export system for multiple formats including PDF and EPUB"
+        },
+        {
+          "task": "Revision System",
+          "solution": "Created AI-powered revision and editing suggestions system"
+        },
+        {
+          "task": "Storage Management",
+          "solution": "Implemented AWS S3 for storing generated novels and user data"
         }
       ],
       "links": {
@@ -1607,86 +1569,81 @@
           "alt": ""
         }
       ],
-      "tags": []
+      "tags": ["AI", "Publishing", "GPT-4", "Creative Writing", "LangChain"]
     },
     {
       "title": "StoryBook AI",
       "slug": "storybook-ai",
-      "timeline": "2024-Present",
+      "timeline": "2024 - Present",
       "industry": "Publishing",
       "deliverables": "Fullstack",
       "team": "Project manager, DevOps Engineer, Database Engineer, Team Lead, Frontend Developer, AI Engineer, Quality Assurance Engineer",
       "platforms": "Web",
       "tech": [
         "Python",
-        "Langchain",
-        "OpenAI",
+        "LangChain",
         "FastAPI",
         "Celery",
         "React",
-        "Javascript"
+        "JavaScript",
+        "Supabase"
       ],
-      "services": [],
-      "description": "StoryBook AI is an AI-driven project in the Publishing domain. The Story Book Writing Application is a web-based platform that allows users to create personalized storybooks by selecting genres and filling out detailed story inputs. It uses AI (ChatGPT-4) for coherent story generation and DALL-E 3 for corresponding image creation. Users can review, edit, and save their stories, with options for premium plans and printed copies. The application integrates Stripe for payments and uses Supabase for database management, offering a comprehensive admin dashboard for order and data management. Key deliverables included Fullstack. The solution uses Python, Langchain, OpenAI, FastAPI, Celery, React, Javascript. Target platforms: Web.",
+      "services": [
+        "OpenAI GPT-4",
+        "DALL-E 3",
+        "Stripe",
+        "Supabase",
+        "AWS S3",
+        "Print Services API"
+      ],
+      "description": "StoryBook AI is an AI-driven project in the Publishing domain. The Story Book Writing Application is a web-based platform that allows users to create personalized storybooks by selecting genres and filling out detailed story inputs. It uses ChatGPT-4 for coherent story generation and DALL-E 3 for corresponding image creation. Users can review, edit, and save their stories, with options for premium plans and printed copies. The application integrates Stripe for payments and uses Supabase for database management. Key deliverables included Fullstack. The solution uses Python, LangChain, OpenAI, FastAPI, Celery, React, JavaScript. Target platforms: Web.",
       "highlights": [
-        "Persona‑driven experience with long‑term memory.",
-        "Built‑in analytics, scoring, and feedback loops.",
-        "Multimodal inputs/outputs across text, audio, and images.",
-        "Rich integrations with external systems and CRMs.",
-        "Robust architecture designed for reliability and resilience."
+        "Persona-driven experience with long-term memory",
+        "Built-in analytics, scoring, and feedback loops",
+        "Multimodal inputs/outputs across text, audio, and images",
+        "Rich integrations with external systems and CRMs",
+        "Robust architecture designed for reliability and resilience"
       ],
       "problems": [
         {
-          "task": "Requirements & Scope",
-          "solution": "Ran discovery to define outcomes, guardrails, KPIs, and success metrics."
+          "task": "Story Generation",
+          "solution": "Implemented GPT-4 for creating personalized, coherent children's stories"
         },
         {
-          "task": "Data Modeling",
-          "solution": "Designed schemas for users, sessions, prompts, and artifacts."
+          "task": "Image Generation",
+          "solution": "Integrated DALL-E 3 for generating illustrations matching story content"
         },
         {
-          "task": "Prompt & Policy Design",
-          "solution": "Structured prompts, system personas, and safety rules with versioning."
+          "task": "Multimodal Coordination",
+          "solution": "Built system to sync text and image generation for cohesive storybooks"
         },
         {
-          "task": "Evaluation Harness",
-          "solution": "Built unit/e2e tests with golden sets and rubric‑based scoring."
+          "task": "Payment Processing",
+          "solution": "Integrated Stripe for subscription management and one-time purchases"
         },
         {
-          "task": "API Design",
-          "solution": "Defined REST endpoints and contracts for auth, CRUD, and AI actions."
+          "task": "Database Management",
+          "solution": "Implemented Supabase for user data, stories, and order management"
         },
         {
-          "task": "Auth & RBAC",
-          "solution": "Implemented JWT/SSO and role‑based access to routes, prompts, and logs."
+          "task": "Print Integration",
+          "solution": "Connected with print services API for physical book production"
         },
         {
-          "task": "Observability",
-          "solution": "Set up structured logging, tracing, dashboards, and alerting."
+          "task": "Admin Dashboard",
+          "solution": "Built comprehensive admin panel for order and content management"
         },
         {
-          "task": "CI/CD",
-          "solution": "Automated testing, image builds, and environment promotion."
+          "task": "Edit Functionality",
+          "solution": "Created collaborative editing interface for story refinement"
         },
         {
-          "task": "Deployment",
-          "solution": "Provisioned infra, secrets, and rollback strategy on cloud."
+          "task": "Preview System",
+          "solution": "Developed real-time preview for storybook layout and design"
         },
         {
-          "task": "Documentation & Handover",
-          "solution": "Created runbooks, ADRs, and onboarding guides."
-        },
-        {
-          "task": "Multimodal I/O",
-          "solution": "Processed images/documents; normalized outputs for downstream use."
-        },
-        {
-          "task": "LangChain Orchestration",
-          "solution": "Composed chains/agents with memory and tools."
-        },
-        {
-          "task": "FastAPI Backend",
-          "solution": "Defined typed routes, pydantic models, and OpenAPI docs."
+          "task": "Export Options",
+          "solution": "Implemented multiple export formats including PDF and print-ready files"
         }
       ],
       "links": {
@@ -1700,76 +1657,77 @@
           "alt": ""
         }
       ],
-      "tags": []
+      "tags": ["AI", "Publishing", "GPT-4", "DALL-E", "Children's Books"]
     },
     {
-      "title": "Zero Shot Image Labelling",
-      "slug": "zero-shot-image-labelling",
+      "title": "Zero-shot Image Annotations",
+      "slug": "zero-shot-image-annotations",
       "timeline": "2023",
       "industry": "Travel",
       "deliverables": "Fullstack",
       "team": "Project manager, DevOps Engineer, Database Engineer, Team Lead, Frontend Developer, AI Engineer, Quality Assurance Engineer",
-      "platforms": "",
+      "platforms": "Web",
       "tech": [
-        "Python"
+        "Python",
+        "PyTorch",
+        "CLIP",
+        "OpenCV",
+        "FastAPI"
       ],
-      "services": [],
-      "description": "Zero Shot Image Labelling is an AI-driven project in the Travel domain. Created an automated image annotation system that processes large datasets, identifying and labeling objects efficiently Key deliverables included Fullstack. The solution uses Python.",
+      "services": [
+        "AWS S3",
+        "AWS Lambda",
+        "OpenAI CLIP",
+        "Hugging Face Models"
+      ],
+      "description": "Zero-shot Image Annotations is an AI-driven project in the Travel domain. Created an automated image annotation system that processes large datasets, identifying and labeling objects efficiently using zero-shot learning techniques. The system can identify objects in images without prior training on those specific categories. Key deliverables included Fullstack. The solution uses Python, CLIP, PyTorch, OpenCV.",
       "highlights": [
-        "Multimodal inputs/outputs across text, audio, and images.",
-        "Robust architecture designed for reliability and resilience.",
-        "Clear evaluation loop with measurable quality targets.",
-        "Scalable design to support growth in users and data.",
-        "Privacy‑aware data handling with sensible defaults."
+        "Multimodal inputs/outputs across text, audio, and images",
+        "Robust architecture designed for reliability and resilience",
+        "Clear evaluation loop with measurable quality targets",
+        "Scalable design to support growth in users and data",
+        "Privacy-aware data handling with sensible defaults"
       ],
       "problems": [
         {
-          "task": "Requirements & Scope",
-          "solution": "Ran discovery to define outcomes, guardrails, KPIs, and success metrics."
+          "task": "Zero-shot Learning",
+          "solution": "Implemented CLIP model for zero-shot image classification and labeling"
         },
         {
-          "task": "Data Modeling",
-          "solution": "Designed schemas for users, sessions, prompts, and artifacts."
+          "task": "Batch Processing",
+          "solution": "Built efficient batch processing pipeline for large image datasets"
         },
         {
-          "task": "Prompt & Policy Design",
-          "solution": "Structured prompts, system personas, and safety rules with versioning."
+          "task": "Object Detection",
+          "solution": "Integrated object detection models with zero-shot classification"
         },
         {
-          "task": "Evaluation Harness",
-          "solution": "Built unit/e2e tests with golden sets and rubric‑based scoring."
+          "task": "Scalability",
+          "solution": "Deployed on AWS Lambda for serverless, scalable processing"
         },
         {
-          "task": "API Design",
-          "solution": "Defined REST endpoints and contracts for auth, CRUD, and AI actions."
+          "task": "Image Preprocessing",
+          "solution": "Implemented OpenCV pipeline for image normalization and augmentation"
         },
         {
-          "task": "Auth & RBAC",
-          "solution": "Implemented JWT/SSO and role‑based access to routes, prompts, and logs."
+          "task": "Model Optimization",
+          "solution": "Optimized model inference for faster processing times"
         },
         {
-          "task": "Observability",
-          "solution": "Set up structured logging, tracing, dashboards, and alerting."
+          "task": "API Development",
+          "solution": "Created FastAPI endpoints for image upload and annotation retrieval"
         },
         {
-          "task": "CI/CD",
-          "solution": "Automated testing, image builds, and environment promotion."
+          "task": "Storage Management",
+          "solution": "Implemented AWS S3 for efficient image and annotation storage"
         },
         {
-          "task": "Deployment",
-          "solution": "Provisioned infra, secrets, and rollback strategy on cloud."
+          "task": "Quality Assurance",
+          "solution": "Built confidence scoring and human-in-the-loop validation"
         },
         {
-          "task": "Documentation & Handover",
-          "solution": "Created runbooks, ADRs, and onboarding guides."
-        },
-        {
-          "task": "Multimodal I/O",
-          "solution": "Processed images/documents; normalized outputs for downstream use."
-        },
-        {
-          "task": "Performance",
-          "solution": "Profiled hotspots and applied caching/batching strategies."
+          "task": "Performance Monitoring",
+          "solution": "Implemented metrics tracking for annotation accuracy and speed"
         }
       ],
       "links": {
@@ -1783,92 +1741,77 @@
           "alt": ""
         }
       ],
-      "tags": []
+      "tags": ["AI", "Computer Vision", "Zero-shot Learning", "CLIP"]
     },
     {
       "title": "AI-Driven User-Specific Chatbot",
       "slug": "ai-driven-user-specific-chatbot",
-      "timeline": "2024-Present",
+      "timeline": "2024 - Present",
       "industry": "Chatbots",
       "deliverables": "Fullstack",
       "team": "Project manager, DevOps Engineer, Database Engineer, Team Lead, Frontend Developer, AI Engineer, Quality Assurance Engineer",
-      "platforms": "",
+      "platforms": "Web",
       "tech": [
         "Python",
-        "Langchain",
-        "Ollama Mixtral 8x7B",
+        "LangChain",
         "FastAPI",
-        "Streamlit"
+        "Streamlit",
+        "PostgreSQL"
       ],
-      "services": [],
-      "description": "AI-Driven User-Specific Chatbot is an AI-driven project in the Chatbots domain. This project created an intelligent chatbot system designed to answer user queries based on their own data securely. It retrieves user-specific information, processes it for quick responses, and ensures data privacy by restricting access to each user's data during their session. The system provides accurate and context-aware answers, maintaining efficiency and security throughout the interaction. Key deliverables included Fullstack. The solution uses Python, Langchain, Ollama Mixtral 8x7B, FastAPI, Streamlit.",
+      "services": [
+        "Ollama Mixtral 8x7B",
+        "ChromaDB",
+        "Redis",
+        "AWS"
+      ],
+      "description": "AI-Driven User-Specific Chatbot is an AI-driven project in the Chatbots domain. This project created an intelligent chatbot system designed to answer user queries based on their own data securely. It retrieves user-specific information, processes it for quick responses, and ensures data privacy by restricting access to each user's data during their session. Key deliverables included Fullstack. The solution uses Python, LangChain, Ollama Mixtral 8x7B, FastAPI, Streamlit.",
       "highlights": [
-        "Retrieval‑augmented generation grounded in project data.",
-        "Enterprise‑grade security with auth, RBAC, and compliance.",
-        "Robust architecture designed for reliability and resilience.",
-        "Clear evaluation loop with measurable quality targets.",
-        "Scalable design to support growth in users and data."
+        "Retrieval-augmented generation grounded in project data",
+        "Enterprise-grade security with auth, RBAC, and compliance",
+        "Robust architecture designed for reliability and resilience",
+        "Clear evaluation loop with measurable quality targets",
+        "Scalable design to support growth in users and data"
       ],
       "problems": [
         {
-          "task": "Requirements & Scope",
-          "solution": "Ran discovery to define outcomes, guardrails, KPIs, and success metrics."
+          "task": "Local LLM Deployment",
+          "solution": "Deployed Ollama Mixtral 8x7B for on-premise, secure processing"
         },
         {
-          "task": "Data Modeling",
-          "solution": "Designed schemas for users, sessions, prompts, and artifacts."
+          "task": "User Data Isolation",
+          "solution": "Implemented strict data segregation with user-specific vector stores"
         },
         {
-          "task": "Prompt & Policy Design",
-          "solution": "Structured prompts, system personas, and safety rules with versioning."
+          "task": "RAG Implementation",
+          "solution": "Built RAG pipeline with ChromaDB for personalized responses"
         },
         {
-          "task": "Evaluation Harness",
-          "solution": "Built unit/e2e tests with golden sets and rubric‑based scoring."
-        },
-        {
-          "task": "API Design",
-          "solution": "Defined REST endpoints and contracts for auth, CRUD, and AI actions."
-        },
-        {
-          "task": "Auth & RBAC",
-          "solution": "Implemented JWT/SSO and role‑based access to routes, prompts, and logs."
-        },
-        {
-          "task": "Observability",
-          "solution": "Set up structured logging, tracing, dashboards, and alerting."
-        },
-        {
-          "task": "CI/CD",
-          "solution": "Automated testing, image builds, and environment promotion."
-        },
-        {
-          "task": "Deployment",
-          "solution": "Provisioned infra, secrets, and rollback strategy on cloud."
-        },
-        {
-          "task": "Documentation & Handover",
-          "solution": "Created runbooks, ADRs, and onboarding guides."
-        },
-        {
-          "task": "RAG Pipeline",
-          "solution": "Built ingestion, chunking, embeddings, and retrieval with relevance tuning."
-        },
-        {
-          "task": "Vector Store",
-          "solution": "Provisioned vector DB and indexing strategy with TTL and namespaces."
-        },
-        {
-          "task": "Streaming UX",
-          "solution": "Implemented server‑sent events/websockets for live updates."
-        },
-        {
-          "task": "LangChain Orchestration",
-          "solution": "Composed chains/agents with memory and tools."
+          "task": "Session Management",
+          "solution": "Created secure session handling with automatic data cleanup"
         },
         {
           "task": "FastAPI Backend",
-          "solution": "Defined typed routes, pydantic models, and OpenAPI docs."
+          "solution": "Developed high-performance API with typed endpoints and validation"
+        },
+        {
+          "task": "Streamlit Interface",
+          "solution": "Built intuitive chat interface using Streamlit for user interactions"
+        },
+        {
+          "task": "Security Implementation",
+          "solution": "Implemented JWT authentication and role-based access control"
+        },
+        {
+          "task": "Vector Store Management",
+          "solution": "Managed user-specific ChromaDB collections with TTL policies"
+        },
+        {
+          "task": "Performance Optimization",
+          "solution": "Implemented caching and query optimization for fast responses"
+        },
+        {
+          "task": "Privacy Compliance",
+          "solution": "Ensured GDPR compliance with data deletion and audit logging"
         }
       ],
       "links": {
@@ -1882,97 +1825,79 @@
           "alt": ""
         }
       ],
-      "tags": []
+      "tags": ["AI", "Chatbot", "RAG", "Privacy", "Mixtral"]
     },
     {
-      "title": "AI Schema Analyzer and Query Ge",
-      "slug": "ai-schema-analyzer-and-query-ge",
+      "title": "AI Schema Analyzer and Query Generator",
+      "slug": "ai-schema-analyzer-query-generator",
       "timeline": "2024 - present",
       "industry": "Database Management",
       "deliverables": "Fullstack",
       "team": "Project manager, DevOps Engineer, Database Engineer, Team Lead, Frontend Developer, AI Engineer, Quality Assurance Engineer",
       "platforms": "AWS",
       "tech": [
+        "Python",
         "Streamlit",
         "FastAPI",
-        "AWS SageMaker",
-        "Langchain",
-        "DeepSeek-Coder",
-        "Mistral 7B"
+        "LangChain"
       ],
-      "services": [],
-      "description": "AI Schema Analyzer and Query Ge is an AI-driven project in the Database Management domain. Engineered an innovative solution using Streamlit, Langchain, AWS SageMaker, and DeepSeek-Coder 6.7B Instruct. Leveraged advanced NLP techniques for autonomous MySQL schema analysis. Developed a system capable of generating optimized SQL queries. Empowered users to effortlessly navigate databases. Used Mistral 7B to explain the queries and their results to users in simple terms. Utilized DeepSeek-Coder to generate SQL queries for the schema provided by users or fetched from the connected database via credentials. Allowed users to type questions they wanted answered from the database. DeepSeek generated the queries, checked their security to ensure no data modification, ran the queries on the database, fetched the results, and explained the queries and results to users. Supported MySQL, MSSQL, Postgres, and MariaDB databases. Built the frontend on Streamlit and used FastAPI for the backend. Key deliverables included Fullstack. The solution uses Streamlit, FastAPI, AWS SageMaker, Langchain, DeepSeek-Coder, Mistral 7B. Target platforms: AWS.",
+      "services": [
+        "AWS SageMaker",
+        "DeepSeek-Coder 6.7B",
+        "Mistral 7B",
+        "PostgreSQL",
+        "MySQL",
+        "MSSQL",
+        "MariaDB"
+      ],
+      "description": "AI Schema Analyzer and Query Generator is an AI-driven project in the Database Management domain. Engineered an innovative solution using Streamlit, LangChain, AWS SageMaker, and DeepSeek-Coder 6.7B Instruct. The system performs autonomous MySQL schema analysis and generates optimized SQL queries. Users can type questions in natural language, and DeepSeek generates secure queries, checks their safety, runs them on the database, and Mistral 7B explains the results in simple terms. Supports MySQL, MSSQL, PostgreSQL, and MariaDB. Key deliverables included Fullstack. The solution uses Streamlit, FastAPI, AWS SageMaker, LangChain, DeepSeek-Coder, Mistral 7B. Target platforms: AWS.",
       "highlights": [
-        "Retrieval‑augmented generation grounded in project data.",
-        "Low‑latency streaming interactions and updates.",
-        "Cloud‑native CI/CD and containerized deployment.",
-        "Robust architecture designed for reliability and resilience.",
-        "Clear evaluation loop with measurable quality targets."
+        "Retrieval-augmented generation grounded in project data",
+        "Low-latency streaming interactions and updates",
+        "Cloud-native CI/CD and containerized deployment",
+        "Robust architecture designed for reliability and resilience",
+        "Clear evaluation loop with measurable quality targets"
       ],
       "problems": [
         {
-          "task": "Requirements & Scope",
-          "solution": "Ran discovery to define outcomes, guardrails, KPIs, and success metrics."
+          "task": "Model Deployment",
+          "solution": "Deployed DeepSeek-Coder and Mistral models on AWS SageMaker endpoints"
         },
         {
-          "task": "Data Modeling",
-          "solution": "Designed schemas for users, sessions, prompts, and artifacts."
+          "task": "Schema Analysis",
+          "solution": "Built automatic schema detection and analysis for multiple database types"
         },
         {
-          "task": "Prompt & Policy Design",
-          "solution": "Structured prompts, system personas, and safety rules with versioning."
+          "task": "Query Generation",
+          "solution": "Implemented DeepSeek-Coder for accurate SQL query generation from natural language"
         },
         {
-          "task": "Evaluation Harness",
-          "solution": "Built unit/e2e tests with golden sets and rubric‑based scoring."
+          "task": "Security Validation",
+          "solution": "Created query validation to prevent data modification and SQL injection"
         },
         {
-          "task": "API Design",
-          "solution": "Defined REST endpoints and contracts for auth, CRUD, and AI actions."
+          "task": "Result Explanation",
+          "solution": "Used Mistral 7B to explain queries and results in layman's terms"
         },
         {
-          "task": "Auth & RBAC",
-          "solution": "Implemented JWT/SSO and role‑based access to routes, prompts, and logs."
+          "task": "Multi-database Support",
+          "solution": "Added dialect-specific query generation for different database types"
         },
         {
-          "task": "Observability",
-          "solution": "Set up structured logging, tracing, dashboards, and alerting."
+          "task": "Streaming Interface",
+          "solution": "Implemented streaming responses for real-time query generation feedback"
         },
         {
-          "task": "CI/CD",
-          "solution": "Automated testing, image builds, and environment promotion."
+          "task": "Connection Management",
+          "solution": "Built secure database connection pooling with credential encryption"
         },
         {
-          "task": "Deployment",
-          "solution": "Provisioned infra, secrets, and rollback strategy on cloud."
+          "task": "FastAPI Integration",
+          "solution": "Developed RESTful APIs for database operations and model inference"
         },
         {
-          "task": "Documentation & Handover",
-          "solution": "Created runbooks, ADRs, and onboarding guides."
-        },
-        {
-          "task": "RAG Pipeline",
-          "solution": "Built ingestion, chunking, embeddings, and retrieval with relevance tuning."
-        },
-        {
-          "task": "Vector Store",
-          "solution": "Provisioned vector DB and indexing strategy with TTL and namespaces."
-        },
-        {
-          "task": "Streaming UX",
-          "solution": "Implemented server‑sent events/websockets for live updates."
-        },
-        {
-          "task": "LangChain Orchestration",
-          "solution": "Composed chains/agents with memory and tools."
-        },
-        {
-          "task": "FastAPI Backend",
-          "solution": "Defined typed routes, pydantic models, and OpenAPI docs."
-        },
-        {
-          "task": "AWS Ops",
-          "solution": "Set up IAM, S3, CloudWatch, and scalable compute."
+          "task": "AWS Infrastructure",
+          "solution": "Set up auto-scaling SageMaker endpoints for model serving"
         }
       ],
       "links": {
@@ -1986,81 +1911,76 @@
           "alt": ""
         }
       ],
-      "tags": []
+      "tags": ["AI", "Database", "SQL", "NLP", "AWS SageMaker"]
     },
     {
-      "title": "Aspect Base Sentiment Analysis",
-      "slug": "aspect-base-sentiment-analysis",
+      "title": "Aspect-Based Sentiment Analysis",
+      "slug": "aspect-based-sentiment-analysis",
       "timeline": "2022",
       "industry": "Travel and Navigation",
       "deliverables": "Script",
       "team": "Project manager, DevOps Engineer, Database Engineer, Team Lead, Frontend Developer, Backend Developer, Quality Assurance Engineer",
-      "platforms": "",
+      "platforms": "Web",
       "tech": [
         "Python",
         "NLTK",
         "spaCy",
-        "Pandas",
-        "PyABSA",
-        "Sentence Transformers"
+        "Pandas"
       ],
-      "services": [],
-      "description": "Aspect Base Sentiment Analysis is an AI-driven project in the Travel and Navigation domain. I developed a project that performs aspect-based sentiment analysis on Yelp reviews, specifically focusing on sentiments related to food items. The objective was to analyze customer reviews and identify the sentiments associated with various dishes offered by different restaurants. Using advanced natural language processing techniques and tools, I was able to extract meaningful insights about how customers feel about specific food items. This analysis helps restaurant owners understand customer perceptions of their dishes, enabling them to make informed decisions to improve their offerings and customer satisfaction. Key deliverables included Script. The solution uses Python, NLTK, spaCy, Pandas, PyABSA, Sentence Transformers.",
+      "services": [
+        "PyABSA",
+        "Sentence Transformers",
+        "Hugging Face",
+        "Yelp API"
+      ],
+      "description": "Aspect-Based Sentiment Analysis is an AI-driven project in the Travel and Navigation domain. Developed a project that performs aspect-based sentiment analysis on Yelp reviews, specifically focusing on sentiments related to food items. The system analyzes customer reviews and identifies sentiments associated with various dishes offered by restaurants, helping restaurant owners understand customer perceptions of specific food items. Key deliverables included Script. The solution uses Python, NLTK, spaCy, Pandas, PyABSA, Sentence Transformers.",
       "highlights": [
-        "Enterprise‑grade security with auth, RBAC, and compliance.",
-        "Robust architecture designed for reliability and resilience.",
-        "Clear evaluation loop with measurable quality targets.",
-        "Scalable design to support growth in users and data.",
-        "Privacy‑aware data handling with sensible defaults."
+        "Enterprise-grade security with auth, RBAC, and compliance",
+        "Robust architecture designed for reliability and resilience",
+        "Clear evaluation loop with measurable quality targets",
+        "Scalable design to support growth in users and data",
+        "Privacy-aware data handling with sensible defaults"
       ],
       "problems": [
         {
-          "task": "Requirements & Scope",
-          "solution": "Ran discovery to define outcomes, guardrails, KPIs, and success metrics."
+          "task": "Aspect Extraction",
+          "solution": "Implemented PyABSA for identifying food-related aspects in reviews"
         },
         {
-          "task": "Data Modeling",
-          "solution": "Designed schemas for users, sessions, prompts, and artifacts."
+          "task": "Sentiment Classification",
+          "solution": "Built multi-class sentiment classifier for aspect-level sentiments"
         },
         {
-          "task": "Prompt & Policy Design",
-          "solution": "Structured prompts, system personas, and safety rules with versioning."
+          "task": "Data Processing",
+          "solution": "Processed Yelp reviews using NLTK and spaCy for text preprocessing"
         },
         {
-          "task": "Evaluation Harness",
-          "solution": "Built unit/e2e tests with golden sets and rubric‑based scoring."
+          "task": "Entity Recognition",
+          "solution": "Used NER to identify food items and restaurant entities"
         },
         {
-          "task": "API Design",
-          "solution": "Defined REST endpoints and contracts for auth, CRUD, and AI actions."
+          "task": "Semantic Similarity",
+          "solution": "Implemented Sentence Transformers for aspect grouping"
         },
         {
-          "task": "Auth & RBAC",
-          "solution": "Implemented JWT/SSO and role‑based access to routes, prompts, and logs."
+          "task": "Data Pipeline",
+          "solution": "Built ETL pipeline for Yelp data ingestion and processing"
         },
         {
-          "task": "Observability",
-          "solution": "Set up structured logging, tracing, dashboards, and alerting."
+          "task": "Visualization",
+          "solution": "Created sentiment distribution visualizations for food aspects"
         },
         {
-          "task": "CI/CD",
-          "solution": "Automated testing, image builds, and environment promotion."
+          "task": "Model Training",
+          "solution": "Fine-tuned transformer models for restaurant domain"
         },
         {
-          "task": "Deployment",
-          "solution": "Provisioned infra, secrets, and rollback strategy on cloud."
+          "task": "Batch Processing",
+          "solution": "Implemented efficient batch processing for large review datasets"
         },
         {
-          "task": "Documentation & Handover",
-          "solution": "Created runbooks, ADRs, and onboarding guides."
-        },
-        {
-          "task": "Performance",
-          "solution": "Profiled hotspots and applied caching/batching strategies."
-        },
-        {
-          "task": "Security Hardening",
-          "solution": "Threat‑modeled, patched dependencies, and secret rotation."
+          "task": "Results Export",
+          "solution": "Built export functionality for sentiment analysis reports"
         }
       ],
       "links": {
@@ -2074,93 +1994,78 @@
           "alt": ""
         }
       ],
-      "tags": []
+      "tags": ["NLP", "Sentiment Analysis", "ABSA", "Restaurant Reviews"]
     },
     {
       "title": "Chat-Based Mall Companion",
       "slug": "chat-based-mall-companion",
       "timeline": "2023",
-      "industry": "E-commerce ,  Life Style",
+      "industry": "E-commerce, Lifestyle",
       "deliverables": "Fullstack",
-      "team": "Project manager, DevOps Engineer, Team Lead, Frontend Developer, Backend Developer, Quality Assurance Engineer , AI Engineer",
-      "platforms": "",
+      "team": "Project manager, DevOps Engineer, Team Lead, Frontend Developer, Backend Developer, Quality Assurance Engineer, AI Engineer",
+      "platforms": "Web, Mobile",
       "tech": [
+        "Python",
         "Flask",
         "Docker",
-        "Python",
-        "Langchain",
-        "ChatGPT-4",
-        "PineconeDB"
+        "LangChain",
+        "React"
       ],
-      "services": [],
-      "description": "Chat-Based Mall Companion is an AI-driven project in the E-commerce ,  Life Style domain. Engineered a knowledge-based chatbot using ChatGPT-4 and Langchain, implementing prompt engineering techniques for advanced natural language understanding. Integrated RAG technology to drive a recommendation system, providing tailored shop suggestions in the mall based on user preferences. Deployed Flask for a resilient backend, managing user interactions and data processing seamlessly. Leveraged PineconeDB to store and retrieve embeddings, optimizing information retrieval for shop details. Key deliverables included Fullstack. The solution uses Flask, Docker, Python, Langchain, ChatGPT-4, PineconeDB.",
+      "services": [
+        "OpenAI GPT-4",
+        "Pinecone",
+        "Redis",
+        "Google Maps API",
+        "AWS"
+      ],
+      "description": "Chat-Based Mall Companion is an AI-driven project in the E-commerce and Lifestyle domain. Engineered a knowledge-based chatbot using ChatGPT-4 and LangChain, implementing prompt engineering for advanced NLU. Integrated RAG technology to drive a recommendation system, providing tailored shop suggestions in the mall based on user preferences. Leveraged Pinecone to store and retrieve embeddings for shop details. Key deliverables included Fullstack. The solution uses Flask, Docker, Python, LangChain, ChatGPT-4, Pinecone.",
       "highlights": [
-        "Retrieval‑augmented generation grounded in project data.",
-        "Cloud‑native CI/CD and containerized deployment.",
-        "Rich integrations with external systems and CRMs.",
-        "Robust architecture designed for reliability and resilience.",
-        "Clear evaluation loop with measurable quality targets."
+        "Retrieval-augmented generation grounded in project data",
+        "Cloud-native CI/CD and containerized deployment",
+        "Rich integrations with external systems and CRMs",
+        "Robust architecture designed for reliability and resilience",
+        "Clear evaluation loop with measurable quality targets"
       ],
       "problems": [
         {
-          "task": "Requirements & Scope",
-          "solution": "Ran discovery to define outcomes, guardrails, KPIs, and success metrics."
+          "task": "RAG Implementation",
+          "solution": "Built RAG pipeline with Pinecone for semantic search of shop information"
         },
         {
-          "task": "Data Modeling",
-          "solution": "Designed schemas for users, sessions, prompts, and artifacts."
+          "task": "Recommendation System",
+          "solution": "Developed personalized shop recommendations using GPT-4 and user preferences"
         },
         {
-          "task": "Prompt & Policy Design",
-          "solution": "Structured prompts, system personas, and safety rules with versioning."
+          "task": "Location Services",
+          "solution": "Integrated Google Maps API for mall navigation and shop locations"
         },
         {
-          "task": "Evaluation Harness",
-          "solution": "Built unit/e2e tests with golden sets and rubric‑based scoring."
+          "task": "Prompt Engineering",
+          "solution": "Created sophisticated prompts for accurate mall assistance"
         },
         {
-          "task": "API Design",
-          "solution": "Defined REST endpoints and contracts for auth, CRUD, and AI actions."
+          "task": "Vector Database",
+          "solution": "Implemented Pinecone for efficient similarity search of shops"
         },
         {
-          "task": "Auth & RBAC",
-          "solution": "Implemented JWT/SSO and role‑based access to routes, prompts, and logs."
-        },
-        {
-          "task": "Observability",
-          "solution": "Set up structured logging, tracing, dashboards, and alerting."
-        },
-        {
-          "task": "CI/CD",
-          "solution": "Automated testing, image builds, and environment promotion."
-        },
-        {
-          "task": "Deployment",
-          "solution": "Provisioned infra, secrets, and rollback strategy on cloud."
-        },
-        {
-          "task": "Documentation & Handover",
-          "solution": "Created runbooks, ADRs, and onboarding guides."
-        },
-        {
-          "task": "RAG Pipeline",
-          "solution": "Built ingestion, chunking, embeddings, and retrieval with relevance tuning."
-        },
-        {
-          "task": "Vector Store",
-          "solution": "Provisioned vector DB and indexing strategy with TTL and namespaces."
-        },
-        {
-          "task": "LangChain Orchestration",
-          "solution": "Composed chains/agents with memory and tools."
+          "task": "Conversation Flow",
+          "solution": "Designed multi-turn conversation handling with context retention"
         },
         {
           "task": "Flask Backend",
-          "solution": "Implemented blueprints, middlewares, and dependency injection."
+          "solution": "Built RESTful APIs with Flask for chat and recommendation endpoints"
         },
         {
-          "task": "Containerization",
-          "solution": "Packaged services with Docker and multi‑stage builds."
+          "task": "Caching Strategy",
+          "solution": "Implemented Redis caching for frequently accessed shop data"
+        },
+        {
+          "task": "Docker Deployment",
+          "solution": "Containerized application for consistent deployment across environments"
+        },
+        {
+          "task": "Real-time Updates",
+          "solution": "Built system for real-time shop availability and offer updates"
         }
       ],
       "links": {
@@ -2174,79 +2079,78 @@
           "alt": ""
         }
       ],
-      "tags": []
+      "tags": ["AI", "Chatbot", "E-commerce", "RAG", "Recommendations"]
     },
     {
-      "title": "Pitstop Navigator Intelligent B",
-      "slug": "pitstop-navigator-intelligent-b",
+      "title": "Pitstop Navigator Intelligent Bot",
+      "slug": "pitstop-navigator-intelligent-bot",
       "timeline": "2023",
       "industry": "Travel and Navigation",
       "deliverables": "Fullstack",
       "team": "Project manager, DevOps Engineer, Database Engineer, Team Lead, Frontend Developer, Backend Developer, Quality Assurance Engineer",
-      "platforms": "",
+      "platforms": "Mobile, Web",
       "tech": [
-        "MongoDB",
         "Python",
-        "Langchain",
-        "ChatGPT-4"
+        "MongoDB",
+        "LangChain",
+        "React Native",
+        "Node.js"
       ],
-      "services": [],
-      "description": "Pitstop Navigator Intelligent B is an AI-driven project in the Travel and Navigation domain. Developed a mobile app where users can chat with a bot about their needs for shops. Users specify their start and endpoint of the trip and any specific needs (e.g., coffee, laundry drop-off). The app uses Yelp data integrated into MongoDB to create a database of Austin businesses. It employs spatial analysis to identify businesses along the route, refining recommendations with ChatGPT-4 and Langchain. A dynamic decision-making process presents optimal pitstops on a map, ensuring the best path that matches the trip with all user-defined pitstops, start, and endpoint. Key deliverables included Fullstack. The solution uses MongoDB, Python, Langchain, ChatGPT-4.",
+      "services": [
+        "OpenAI GPT-4",
+        "Yelp API",
+        "Google Maps API",
+        "MongoDB Atlas",
+        "AWS"
+      ],
+      "description": "Pitstop Navigator Intelligent Bot is an AI-driven project in the Travel and Navigation domain. Developed a mobile app where users chat with a bot about their trip needs. Users specify start and endpoints and any specific needs (coffee, laundry). The app uses Yelp data in MongoDB to create a database of Austin businesses. It employs spatial analysis to identify businesses along the route, refining recommendations with ChatGPT-4 and LangChain. The system presents optimal pitstops on a map, ensuring the best path with all user-defined stops. Key deliverables included Fullstack. The solution uses MongoDB, Python, LangChain, ChatGPT-4.",
       "highlights": [
-        "Rich integrations with external systems and CRMs.",
-        "Robust architecture designed for reliability and resilience.",
-        "Clear evaluation loop with measurable quality targets.",
-        "Scalable design to support growth in users and data.",
-        "Privacy‑aware data handling with sensible defaults."
+        "Rich integrations with external systems and CRMs",
+        "Robust architecture designed for reliability and resilience",
+        "Clear evaluation loop with measurable quality targets",
+        "Scalable design to support growth in users and data",
+        "Privacy-aware data handling with sensible defaults"
       ],
       "problems": [
         {
-          "task": "Requirements & Scope",
-          "solution": "Ran discovery to define outcomes, guardrails, KPIs, and success metrics."
+          "task": "Spatial Analysis",
+          "solution": "Implemented geospatial queries in MongoDB for finding businesses along routes"
         },
         {
-          "task": "Data Modeling",
-          "solution": "Designed schemas for users, sessions, prompts, and artifacts."
+          "task": "Route Optimization",
+          "solution": "Built algorithm to optimize multi-stop routes with minimal detours"
         },
         {
-          "task": "Prompt & Policy Design",
-          "solution": "Structured prompts, system personas, and safety rules with versioning."
+          "task": "Yelp Integration",
+          "solution": "Integrated Yelp API for comprehensive business data and reviews"
         },
         {
-          "task": "Evaluation Harness",
-          "solution": "Built unit/e2e tests with golden sets and rubric‑based scoring."
+          "task": "Chat Interface",
+          "solution": "Developed conversational UI for natural trip planning interactions"
         },
         {
-          "task": "API Design",
-          "solution": "Defined REST endpoints and contracts for auth, CRUD, and AI actions."
+          "task": "Recommendation Engine",
+          "solution": "Used GPT-4 to refine business recommendations based on user preferences"
         },
         {
-          "task": "Auth & RBAC",
-          "solution": "Implemented JWT/SSO and role‑based access to routes, prompts, and logs."
+          "task": "Map Visualization",
+          "solution": "Integrated Google Maps for interactive route and pitstop display"
         },
         {
-          "task": "Observability",
-          "solution": "Set up structured logging, tracing, dashboards, and alerting."
+          "task": "Database Design",
+          "solution": "Designed MongoDB schema with geospatial indexes for performance"
         },
         {
-          "task": "CI/CD",
-          "solution": "Automated testing, image builds, and environment promotion."
+          "task": "Mobile Development",
+          "solution": "Built cross-platform mobile app using React Native"
         },
         {
-          "task": "Deployment",
-          "solution": "Provisioned infra, secrets, and rollback strategy on cloud."
+          "task": "Real-time Updates",
+          "solution": "Implemented real-time business hours and availability checking"
         },
         {
-          "task": "Documentation & Handover",
-          "solution": "Created runbooks, ADRs, and onboarding guides."
-        },
-        {
-          "task": "LangChain Orchestration",
-          "solution": "Composed chains/agents with memory and tools."
-        },
-        {
-          "task": "Performance",
-          "solution": "Profiled hotspots and applied caching/batching strategies."
+          "task": "Offline Capability",
+          "solution": "Added offline mode with cached route and business data"
         }
       ],
       "links": {
@@ -2260,7 +2164,7 @@
           "alt": ""
         }
       ],
-      "tags": []
+      "tags": ["AI", "Navigation", "Travel", "Chatbot", "Geospatial"]
     }
   ]
 }

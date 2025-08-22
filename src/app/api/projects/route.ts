@@ -12,6 +12,10 @@ type Project = {
   platforms?: string
   tech?: string[]
   services?: string[]
+  libraries?: string[]
+  links?: { demo?: string; repo?: string; docs?: string }
+  images?: { src: string; alt?: string }[]
+  tags?: string[]
   description: string
   highlights?: string[]
   problems?: { task: string; solution: string }[]
@@ -49,6 +53,10 @@ export async function GET() {
         platforms: p.platforms,
         tech: p.tech?.filter(Boolean),
         services: p.services?.filter(Boolean),
+        libraries: (p as any).libraries?.filter?.(Boolean),
+        links: (p as any).links || undefined,
+        images: (p as any).images?.filter?.((img: any) => img?.src) || undefined,
+        tags: (p as any).tags?.filter?.(Boolean),
         description: p.description || "",
         highlights: p.highlights?.filter(Boolean),
         problems: p.problems?.filter((x) => x?.task && x?.solution) as { task: string; solution: string }[] | undefined,

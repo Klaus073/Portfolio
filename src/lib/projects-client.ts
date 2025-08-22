@@ -9,6 +9,10 @@ export type ClientProject = {
   platforms?: string
   tech?: string[]
   services?: string[]
+  libraries?: string[]
+  links?: { demo?: string; repo?: string; docs?: string }
+  images?: { src: string; alt?: string }[]
+  tags?: string[]
 }
 
 export async function fetchProjects(): Promise<ClientProject[]> {
@@ -17,5 +21,6 @@ export async function fetchProjects(): Promise<ClientProject[]> {
   const data = (await res.json()) as { projects: ClientProject[] }
   return data.projects ?? []
 }
+
 
 

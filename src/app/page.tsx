@@ -5,6 +5,7 @@ import { useEffect, useRef, useState } from "react"
 import { useEffect as useClientEffect } from "react"
 import { fetchProjects, type ClientProject } from "@/lib/projects-client"
 import { ProjectModal } from "@/components/project-modal"
+import { Github, Linkedin, Mail, Phone } from "lucide-react"
 
 export default function Home() {
   const [isDark, setIsDark] = useState(true)
@@ -92,9 +93,11 @@ export default function Home() {
 
               <div className="space-y-6 max-w-md">
                 <p className="text-xl text-muted-foreground leading-relaxed">
-                  Senior AI Engineer crafting production-grade intelligent systems at the intersection of
-                  <span className="text-foreground"> LLMs</span>,<span className="text-foreground"> retrieval</span>, and
-                  <span className="text-foreground"> voice/agentic experiences</span>.
+                <span className="text-foreground"> Senior AI Engineer </span>
+                specializing in production-grade
+                  <span className="text-foreground"> Agentic RAG</span>,<span className="text-foreground"> Voice AI</span>, and
+                  <span className="text-foreground"> Agentic workflows</span>,<span className="text-foreground"> AI automation </span>
+                  integrating <span className="text-foreground"> GenAI</span> across real business systems.
                 </p>
 
                 <div className="flex items-center gap-4 text-sm text-muted-foreground">
@@ -120,7 +123,7 @@ export default function Home() {
               <div className="space-y-4">
                 <div className="text-sm text-muted-foreground font-mono">FOCUS</div>
                 <div className="flex flex-wrap gap-2">
-                  {["AI/ML", "LLMs", "RAG", "LangChain", "Python", "AWS"].map((skill) => (
+                  {["Langchain", "Langraph", "LlamaIndex", "LiveKit", "VAPI", "Voice Agents", "Agentic RAG", "Python", "AWS", "LLM"].map((skill) => (
                     <span
                       key={skill}
                       className="px-3 py-1 text-xs border border-border rounded-full hover:border-muted-foreground/50 transition-colors duration-300"
@@ -258,6 +261,10 @@ export default function Home() {
                       style={{ flex: "0 0 calc((100% - 6rem) / 4)" }}
                     >
                       <div className="flex h-full flex-col">
+                        {p.images?.[0]?.src ? (
+                          <img src={p.images[0].src} alt={p.images[0].alt || p.title} className="w-full h-28 object-cover rounded-md mb-3 border border-border/50" />
+                        ) : null}
+
                         <div className="text-xs text-muted-foreground font-mono flex items-center justify-between gap-2 min-h-[24px]">
                           <span className="truncate max-w-[60%]">{p.timeline ?? ""}</span>
                           <span className="shrink-0">{p.industry ?? ""}</span>
@@ -270,7 +277,7 @@ export default function Home() {
                         <p className="mt-2 text-sm leading-6 text-muted-foreground line-clamp-7 flex-grow min-h-[72px] max-h-[72px] overflow-hidden">{getFirstSentences(p.description || "", 2)}</p>
 
                         <div className="mt-4 flex flex-wrap gap-2 text-xs text-muted-foreground min-h-[24px]">
-                          {(p.tech ?? []).slice(0, 4).map((t) => (
+                          {(p.tags && p.tags.length ? p.tags : (p.tech ?? []).slice(0, 4)).slice(0, 4).map((t) => (
                             <span key={t} className="px-2 py-1 border border-border rounded-full">
                               {t}
                             </span>
@@ -326,22 +333,20 @@ export default function Home() {
 
               <div className="grid grid-cols-2 gap-4">
                 {[
-                  { name: "GitHub", handle: "klaus073", url: "https://github.com/klaus073" },
-                  { name: "LinkedIn", handle: "rao-nauman-7042161b0", url: "https://www.linkedin.com/in/rao-nauman-7042161b0/" },
-                  { name: "Phone", handle: "+92 304 402 9852", url: "tel:+923044029852" },
-                  { name: "Email", handle: "naumanrao1254@outlook.com", url: "mailto:naumanrao1254@outlook.com" },
+                  { name: "GitHub", handle: "klaus073", url: "https://github.com/klaus073", icon: Github },
+                  { name: "LinkedIn", handle: "rao-nauman-7042161b0", url: "https://www.linkedin.com/in/rao-nauman-7042161b0/", icon: Linkedin },
+                  { name: "Phone", handle: "+92 304 402 9852", url: "tel:+923044029852", icon: Phone },
+                  { name: "Email", handle: "naumanrao1254@outlook.com", url: "mailto:naumanrao1254@outlook.com", icon: Mail },
                 ].map((social) => (
                   <Link
                     key={social.name}
                     href={social.url}
-                    className="group p-4 border border-border rounded-lg hover:border-muted-foreground/50 transition-all duration-300 hover:shadow-sm"
+                    aria-label={social.name}
+                    target={social.url.startsWith("http") ? "_blank" : undefined}
+                    className="group p-4 border border-border rounded-full hover:border-muted-foreground/50 transition-all duration-300 hover:shadow-sm flex items-center justify-center"
                   >
-                    <div className="space-y-2">
-                      <div className="text-foreground group-hover:text-muted-foreground transition-colors duration-300">
-                        {social.name}
-                      </div>
-                      <div className="text-sm text-muted-foreground">{social.handle}</div>
-                    </div>
+                    {social.icon ? <social.icon className="w-5 h-5 text-foreground group-hover:text-muted-foreground transition-colors duration-300" /> : null}
+                    <span className="sr-only">{social.name}</span>
                   </Link>
                 ))}
               </div>
