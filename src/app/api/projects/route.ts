@@ -58,7 +58,9 @@ export async function GET() {
 
     // Fallback: old AI_Portfolio.json (legacy heuristic)
     const legacyPath = path.join(process.cwd(), "data", "AI_Portfolio.json")
-    let raw = fs.readFileSync(legacyPath, "utf8").replace(/: *NaN/g, ": null")
+    const raw = fs
+      .readFileSync(legacyPath, "utf8")
+      .replace(/: *NaN/g, ": null")
     const json = JSON.parse(raw) as Record<string, Record<string, unknown>>
     const projects: Project[] = Object.entries(json).map(([title, data]) => ({
       slug: toSlug(title),

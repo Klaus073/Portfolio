@@ -27,7 +27,15 @@ jobs:
           # EC2 creds
           if [ -n "${{ secrets.EC2_HOST }}" ]; then echo "EC2_HOST=${{ secrets.EC2_HOST }}" >> "$GITHUB_ENV"; else echo "EC2_HOST=${{ vars.EC2_HOST }}" >> "$GITHUB_ENV"; fi
           if [ -n "${{ secrets.EC2_USER }}" ]; then echo "EC2_USER=${{ secrets.EC2_USER }}" >> "$GITHUB_ENV"; else echo "EC2_USER=${{ vars.EC2_USER }}" >> "$GITHUB_ENV"; fi
-          if [ -n "${{ secrets.EC2_SSH_KEY }}" ]; then echo "EC2_SSH_KEY=${{ secrets.EC2_SSH_KEY }}" >> "$GITHUB_ENV"; else echo "EC2_SSH_KEY=${{ vars.EC2_SSH_KEY }}" >> "$GITHUB_ENV"; fi
+          if [ -n "${{ secrets.EC2_SSH_KEY }}" ]; then
+            echo 'EC2_SSH_KEY<<EOF' >> "$GITHUB_ENV"
+            printf '%s\n' "${{ secrets.EC2_SSH_KEY }}" >> "$GITHUB_ENV"
+            echo 'EOF' >> "$GITHUB_ENV"
+          else
+            echo 'EC2_SSH_KEY<<EOF' >> "$GITHUB_ENV"
+            printf '%s\n' "${{ vars.EC2_SSH_KEY }}" >> "$GITHUB_ENV"
+            echo 'EOF' >> "$GITHUB_ENV"
+          fi
 
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
