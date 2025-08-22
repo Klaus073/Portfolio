@@ -6,6 +6,7 @@ import { useEffect as useClientEffect } from "react"
 import { fetchProjects, type ClientProject } from "@/lib/projects-client"
 import { ProjectModal } from "@/components/project-modal"
 import { Github, Linkedin, Mail, Phone } from "lucide-react"
+import Image from "next/image"
 
 export default function Home() {
   const [isDark, setIsDark] = useState(true)
@@ -262,7 +263,7 @@ export default function Home() {
                     >
                       <div className="flex h-full flex-col">
                         {p.images?.[0]?.src ? (
-                          <img src={p.images[0].src} alt={p.images[0].alt || p.title} className="w-full h-28 object-cover rounded-md mb-3 border border-border/50" />
+                          <Image src={p.images[0].src} alt={p.images[0].alt || p.title} width={800} height={200} className="w-full h-28 object-cover rounded-md mb-3 border border-border/50" />
                         ) : null}
 
                         <div className="text-xs text-muted-foreground font-mono flex items-center justify-between gap-2 min-h-[24px]">

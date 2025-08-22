@@ -42,8 +42,15 @@ export async function GET() {
     const jsonPath = path.join(process.cwd(), "data", "projects.json")
     if (fs.existsSync(jsonPath)) {
       const raw = fs.readFileSync(jsonPath, "utf8")
-      const parsed = JSON.parse(raw) as { projects: Partial<Project>[] }
-      const normalized: Project[] = (parsed.projects || []).map((p) => ({
+      type Extra = {
+        libraries?: string[]
+        links?: { demo?: string; repo?: string; docs?: string }
+        images?: { src: string; alt?: string }[]
+        tags?: string[]
+      }
+      const parsed = JSON.parse(raw) as { projects: (Partial<Project> & Extra)[] }
+      const items = (parsed.projects || []) as (Partial<Project> & Extra)[]
+      const normalized: Project[] = items.map((p) => ({
         slug: p.slug || toSlug(p.title || "project"),
         title: p.title || "Untitled Project",
         timeline: p.timeline,
@@ -53,10 +60,10 @@ export async function GET() {
         platforms: p.platforms,
         tech: p.tech?.filter(Boolean),
         services: p.services?.filter(Boolean),
-        libraries: (p as any).libraries?.filter?.(Boolean),
-        links: (p as any).links || undefined,
-        images: (p as any).images?.filter?.((img: any) => img?.src) || undefined,
-        tags: (p as any).tags?.filter?.(Boolean),
+        libraries: p.libraries?.filter(Boolean),
+        links: p.links || undefined,
+        images: p.images?.filter((img) => Boolean(img && img.src)) || undefined,
+        tags: p.tags?.filter(Boolean),
         description: p.description || "",
         highlights: p.highlights?.filter(Boolean),
         problems: p.problems?.filter((x) => x?.task && x?.solution) as { task: string; solution: string }[] | undefined,

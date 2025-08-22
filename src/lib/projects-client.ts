@@ -13,6 +13,8 @@ export type ClientProject = {
   links?: { demo?: string; repo?: string; docs?: string }
   images?: { src: string; alt?: string }[]
   tags?: string[]
+  highlights?: string[]
+  problems?: { task: string; solution: string }[]
 }
 
 export async function fetchProjects(): Promise<ClientProject[]> {

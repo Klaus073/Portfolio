@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react"
 import { createPortal } from "react-dom"
 import type { ClientProject } from "@/lib/projects-client"
+import Image from "next/image"
 
 type Props = {
   project: ClientProject | null
@@ -54,7 +55,7 @@ export function ProjectModal({ project, onClose }: Props) {
         <button onClick={onClose} className="absolute right-4 top-4 text-sm text-muted-foreground hover:text-foreground" aria-label="Close">×</button>
 
         {project.images?.[0]?.src ? (
-          <img src={project.images[0].src} alt={project.images[0].alt || project.title} className="w-full h-56 md:h-72 object-cover rounded-xl mb-6 border border-white/10" />
+          <Image src={project.images[0].src} alt={project.images[0].alt || project.title} width={1600} height={480} className="w-full h-56 md:h-72 object-cover rounded-xl mb-6 border border-white/10" />
         ) : null}
 
         <header className="space-y-3 mb-6">
