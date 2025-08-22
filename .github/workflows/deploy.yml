@@ -1,117 +1,89 @@
-name: Build and Deploy
+name: Deploy to Staging with Docker
 
 on:
   push:
-    branches: [ "main" ]
-
-concurrency:
-  group: deploy-main
-  cancel-in-progress: true
+    branches: [ staging ]
 
 env:
-  REGISTRY_URL: ${{ vars.REGISTRY_URL }}
-  EC2_APP_DIR: /home/ubuntu/Ui-Protfolio
+  IMAGE_NAME: 'student-ranking-app'  # Updated to match your compose file
+  CONTAINER_NAME: 'ranking-app'
 
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-
-      - name: Resolve EC2 credentials (Secrets -> Vars fallback)
-        shell: bash
-        run: |
-          set -euo pipefail
-          # EC2 creds
-          if [ -n "${{ secrets.EC2_HOST }}" ]; then echo "EC2_HOST=${{ secrets.EC2_HOST }}" >> "$GITHUB_ENV"; else echo "EC2_HOST=${{ vars.EC2_HOST }}" >> "$GITHUB_ENV"; fi
-          if [ -n "${{ secrets.EC2_USER }}" ]; then echo "EC2_USER=${{ secrets.EC2_USER }}" >> "$GITHUB_ENV"; else echo "EC2_USER=${{ vars.EC2_USER }}" >> "$GITHUB_ENV"; fi
-          if [ -n "${{ secrets.EC2_SSH_KEY }}" ]; then
-            echo 'EC2_SSH_KEY<<EOF' >> "$GITHUB_ENV"
-            printf '%s\n' "${{ secrets.EC2_SSH_KEY }}" >> "$GITHUB_ENV"
-            echo 'EOF' >> "$GITHUB_ENV"
+    - name: Checkout code
+      uses: actions/checkout@v4
+    
+    - name: Configure Docker for insecure registry
+      run: |
+        # Configure Docker daemon to allow insecure registry
+        sudo mkdir -p /etc/docker
+        echo '{
+          "insecure-registries": ["${{ secrets.REGISTRY_URL }}"]
+        }' | sudo tee /etc/docker/daemon.json
+        sudo systemctl restart docker
+        
+        # Wait for Docker to restart
+        sleep 10
+    
+    - name: Build Docker image
+      run: |
+        docker build -t ${{ env.IMAGE_NAME }}:latest .
+        docker tag ${{ env.IMAGE_NAME }}:latest ${{ secrets.REGISTRY_URL }}/${{ env.IMAGE_NAME }}:latest
+        docker tag ${{ env.IMAGE_NAME }}:latest ${{ secrets.REGISTRY_URL }}/${{ env.IMAGE_NAME }}:${{ github.sha }}
+    
+    - name: Push to Registry
+      run: |
+        docker push ${{ secrets.REGISTRY_URL }}/${{ env.IMAGE_NAME }}:latest
+        docker push ${{ secrets.REGISTRY_URL }}/${{ env.IMAGE_NAME }}:${{ github.sha }}
+    
+    - name: Deploy to Staging Server
+      uses: appleboy/ssh-action@v1.0.3
+      with:
+        host: ${{ secrets.EC2_HOST }}
+        username: ${{ secrets.EC2_USER }}
+        key: ${{ secrets.EC2_SSH_KEY }}
+        port: ${{ secrets.STAGING_EC2_PORT || 22 }}
+        script: |
+          # Navigate to the ranking folder
+          cd /home/ubuntu/Ui-Protfolio
+          
+          # Pull the latest image from registry
+          sudo docker pull localhost:5000/${{ env.IMAGE_NAME }}:latest
+          
+          # Stop current containers (docker compose)
+          sudo docker compose down
+          
+          # Start containers with the new image
+          sudo docker compose up -d
+          
+          # Wait for containers to be healthy
+          sleep 5
+          
+          # Check if containers are running
+          if sudo docker compose ps | grep -q "Up"; then
+            echo "✅ Deployment successful"
+            
+            # Clean up old images (keep only current and one previous)
+            echo "Cleaning up old Docker images..."
+            
+            # Get current image ID
+            CURRENT_IMAGE=$(sudo docker inspect --format='{{.Id}}' localhost:5000/${{ env.IMAGE_NAME }}:latest)
+            
+            # Keep only the last 2 images of our app
+            sudo docker images --format "{{.Repository}}:{{.Tag}} {{.ID}}" | \
+              grep "localhost:5000/${{ env.IMAGE_NAME }}" | \
+              grep -v "latest" | \
+              awk '{print $2}' | \
+              xargs -r sudo docker rmi -f 2>/dev/null || true
+            
+            # Remove dangling images
+            sudo docker image prune -f
+            
+            echo "✅ Cleanup complete"
           else
-            echo 'EC2_SSH_KEY<<EOF' >> "$GITHUB_ENV"
-            printf '%s\n' "${{ vars.EC2_SSH_KEY }}" >> "$GITHUB_ENV"
-            echo 'EOF' >> "$GITHUB_ENV"
-          fi
-
-      - name: Resolve REGISTRY_URL (Secrets -> Vars fallback)
-        shell: bash
-        run: |
-          set -euo pipefail
-          if [ -n "${{ secrets.REGISTRY_URL }}" ]; then echo "REGISTRY_URL=${{ secrets.REGISTRY_URL }}" >> "$GITHUB_ENV"; else echo "REGISTRY_URL=${{ vars.REGISTRY_URL }}" >> "$GITHUB_ENV"; fi
-
-      - name: Validate registry url
-        shell: bash
-        run: |
-          set -euo pipefail
-          if [ -z "${REGISTRY_URL:-}" ]; then
-            echo "REGISTRY_URL is required (e.g., 10.0.0.1:5000 or myregistry.local:5000)" >&2
+            echo "❌ Deployment failed! Check docker compose logs"
+            sudo docker compose logs --tail=50
             exit 1
           fi
-
-      - name: Create BuildKit config for insecure registry
-        id: buildkit_config
-        shell: bash
-        run: |
-          set -euo pipefail
-          REG_URL="${REGISTRY_URL}"
-          REG_HOSTPORT="${REG_URL#http://}"
-          REG_HOSTPORT="${REG_HOSTPORT#https://}"
-          REG_HOSTPORT="${REG_HOSTPORT%%/*}"
-          CFG="$RUNNER_TEMP/buildkit.toml"
-          {
-            echo "[registry.\"$REG_HOSTPORT\"]"
-            echo "  http = true"
-            echo "  insecure = true"
-          } > "$CFG"
-          echo "config_path=$CFG" >> "$GITHUB_OUTPUT"
-
-      - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v3
-        with:
-          config: ${{ steps.buildkit_config.outputs.config_path }}
-
-      # No registry login; pushing to insecure/unauthenticated registry
-
-      - name: Build and push Docker image
-        uses: docker/build-push-action@v6
-        with:
-          context: ./portfolio-app
-          file: ./portfolio-app/Dockerfile
-          push: true
-          tags: |
-            ${{ env.REGISTRY_URL }}/portfolio-app:latest
-            ${{ env.REGISTRY_URL }}/portfolio-app:${{ github.sha }}
-          cache-from: type=registry,ref=${{ env.REGISTRY_URL }}/portfolio-app:buildcache
-          cache-to: type=registry,ref=${{ env.REGISTRY_URL }}/portfolio-app:buildcache,mode=max
-
-      - name: Deploy on EC2 via SSH and run compose
-        uses: appleboy/ssh-action@v1.0.3
-        with:
-          host: ${{ env.EC2_HOST }}
-          username: ${{ env.EC2_USER }}
-          key: ${{ env.EC2_SSH_KEY }}
-          envs: EC2_APP_DIR,REGISTRY_URL
-          script_stop: true
-          command_timeout: 30m
-          script: |
-            set -euo pipefail
-            # Ensure EC2 docker allows insecure registry
-            REG_URL="$REGISTRY_URL"
-            REG_HOSTPORT="${REG_URL#http://}"
-            REG_HOSTPORT="${REG_HOSTPORT#https://}"
-            REG_HOSTPORT="${REG_HOSTPORT%%/*}"
-            sudo mkdir -p /etc/docker
-            echo "{\"insecure-registries\":[\"$REG_HOSTPORT\"]}" | sudo tee /etc/docker/daemon.json >/dev/null
-            sudo systemctl restart docker || true
-            cd "$EC2_APP_DIR"
-            export IMAGE="$REGISTRY_URL/portfolio-app"
-            # Compose should reference image as ${IMAGE}:${IMAGE_TAG}
-            export IMAGE_TAG=latest
-            docker compose pull
-            docker compose up -d --remove-orphans
-            docker image prune -af
-
-
