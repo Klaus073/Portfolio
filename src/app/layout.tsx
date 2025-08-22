@@ -10,8 +10,8 @@ const inter = Inter({
 })
 
 export const metadata: Metadata = {
-  title: "Alex Johnson - Software Craftsman",
-  description: "Exploring the intersection of software engineering, people, and AI.",
+  title: "Nauman Rao — Senior AI Engineer",
+  description: "Portfolio of Nauman Rao: AI/ML, LLMs, RAG, agents, and production systems.",
   generator: "v0.app",
 }
 
