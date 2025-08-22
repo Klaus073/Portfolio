@@ -36,6 +36,12 @@ jobs:
             echo 'EOF' >> "$GITHUB_ENV"
           fi
 
+      - name: Resolve REGISTRY_URL (Secrets -> Vars fallback)
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [ -n "${{ secrets.REGISTRY_URL }}" ]; then echo "REGISTRY_URL=${{ secrets.REGISTRY_URL }}" >> "$GITHUB_ENV"; else echo "REGISTRY_URL=${{ vars.REGISTRY_URL }}" >> "$GITHUB_ENV"; fi
+
       - name: Validate registry url
         shell: bash
         run: |
