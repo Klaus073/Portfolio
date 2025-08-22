@@ -9,7 +9,7 @@ concurrency:
   cancel-in-progress: true
 
 env:
-  IMAGE_REPO: ${{ vars.IMAGE_REPO }}
+  REGISTRY_URL: ${{ vars.REGISTRY_URL }}
   EC2_APP_DIR: /home/ubuntu/Ui-Protfolio
 
 jobs:
@@ -36,8 +36,38 @@ jobs:
             echo 'EOF' >> "$GITHUB_ENV"
           fi
 
+      - name: Validate registry url
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [ -z "${REGISTRY_URL:-}" ]; then
+            echo "REGISTRY_URL is required (e.g., 10.0.0.1:5000 or myregistry.local:5000)" >&2
+            exit 1
+          fi
+
+      - name: Create BuildKit config for insecure registry
+        id: buildkit_config
+        shell: bash
+        run: |
+          set -euo pipefail
+          REG_URL="${REGISTRY_URL}"
+          REG_HOSTPORT="${REG_URL#http://}"
+          REG_HOSTPORT="${REG_HOSTPORT#https://}"
+          REG_HOSTPORT="${REG_HOSTPORT%%/*}"
+          CFG="$RUNNER_TEMP/buildkit.toml"
+          {
+            echo "[registry.\"$REG_HOSTPORT\"]"
+            echo "  http = true"
+            echo "  insecure = true"
+          } > "$CFG"
+          echo "config_path=$CFG" >> "$GITHUB_OUTPUT"
+
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
+        with:
+          config: ${{ steps.buildkit_config.outputs.config_path }}
+
+      # No registry login; pushing to insecure/unauthenticated registry
 
       - name: Build and push Docker image
         uses: docker/build-push-action@v6
@@ -46,10 +76,10 @@ jobs:
           file: ./portfolio-app/Dockerfile
           push: true
           tags: |
-            ${{ env.IMAGE_REPO }}:latest
-            ${{ env.IMAGE_REPO }}:${{ github.sha }}
-          cache-from: type=registry,ref=${{ env.IMAGE_REPO }}:buildcache
-          cache-to: type=registry,ref=${{ env.IMAGE_REPO }}:buildcache,mode=max
+            ${{ env.REGISTRY_URL }}/portfolio-app:latest
+            ${{ env.REGISTRY_URL }}/portfolio-app:${{ github.sha }}
+          cache-from: type=registry,ref=${{ env.REGISTRY_URL }}/portfolio-app:buildcache
+          cache-to: type=registry,ref=${{ env.REGISTRY_URL }}/portfolio-app:buildcache,mode=max
 
       - name: Deploy on EC2 via SSH and run compose
         uses: appleboy/ssh-action@v1.0.3
@@ -57,13 +87,21 @@ jobs:
           host: ${{ env.EC2_HOST }}
           username: ${{ env.EC2_USER }}
           key: ${{ env.EC2_SSH_KEY }}
-          envs: EC2_APP_DIR,IMAGE_REPO
+          envs: EC2_APP_DIR,REGISTRY_URL
           script_stop: true
           command_timeout: 30m
           script: |
             set -euo pipefail
+            # Ensure EC2 docker allows insecure registry
+            REG_URL="$REGISTRY_URL"
+            REG_HOSTPORT="${REG_URL#http://}"
+            REG_HOSTPORT="${REG_HOSTPORT#https://}"
+            REG_HOSTPORT="${REG_HOSTPORT%%/*}"
+            sudo mkdir -p /etc/docker
+            echo "{\"insecure-registries\":[\"$REG_HOSTPORT\"]}" | sudo tee /etc/docker/daemon.json >/dev/null
+            sudo systemctl restart docker || true
             cd "$EC2_APP_DIR"
-            export IMAGE="$IMAGE_REPO"
+            export IMAGE="$REGISTRY_URL/portfolio-app"
             # Compose should reference image as ${IMAGE}:${IMAGE_TAG}
             export IMAGE_TAG=latest
             docker compose pull
