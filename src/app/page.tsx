@@ -5,8 +5,9 @@ import { useEffect, useRef, useState } from "react"
 import { useEffect as useClientEffect } from "react"
 import { fetchProjects, type ClientProject } from "@/lib/projects-client"
 import { ProjectModal } from "@/components/project-modal"
-import { Github, Linkedin, Mail, Phone } from "lucide-react"
+import { Github, Linkedin, Mail, Phone, Bot, Database, PhoneCall, LineChart, Workflow, Rocket } from "lucide-react"
 import Image from "next/image"
+import { Button } from "@/components/ui/button"
 
 export default function Home() {
   const [isDark, setIsDark] = useState(true)
@@ -62,7 +63,7 @@ export default function Home() {
     <div className="min-h-screen bg-background text-foreground relative">
       <nav className="fixed left-8 top-1/2 -translate-y-1/2 z-10 hidden lg:block">
         <div className="flex flex-col gap-4">
-          {["intro", "work", "thoughts", "connect"].map((section) => (
+          {["intro", "services", "work", "thoughts", "connect"].map((section) => (
             <button
               key={section}
               onClick={() => document.getElementById(section)?.scrollIntoView({ behavior: "smooth" })}
@@ -139,9 +140,120 @@ export default function Home() {
         </header>
 
         <section
-          id="work"
+          id="services"
           ref={(el) => {
             sectionsRef.current[1] = el
+          }}
+          className="min-h-screen py-32 opacity-0"
+        >
+          <div className="space-y-10">
+            <div className="flex items-end justify-between">
+              <div>
+                <h2 className="text-4xl font-light">Services</h2>
+                <div className="text-sm text-muted-foreground font-mono mt-2">High-impact outcomes in weeks — not months</div>
+              </div>
+              <div className="flex items-center gap-3">
+                <Button size="sm" asChild>
+                  <Link href="mailto:naumanrao1254@outlook.com?subject=Project%20fit%20%26%20proposal">Book a 15‑min intro</Link>
+                </Button>
+                <Button size="sm" variant="outline" asChild>
+                  <Link href="#thoughts">See case studies</Link>
+                </Button>
+              </div>
+            </div>
+
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+              {[
+                {
+                  title: "Agentic RAG Systems",
+                  icon: <Database className="w-5 h-5 text-foreground" />,
+                  points: [
+                    "Eval‑driven grounding & citations",
+                    "Multi‑source connectors",
+                    "Caching, cost controls, observability",
+                  ],
+                },
+                {
+                  title: "Voice AI Agents",
+                  icon: <PhoneCall className="w-5 h-5 text-foreground" />,
+                  points: [
+                    "LiveKit/VAPI realtime",
+                    "Tool use & CRM actions",
+                    "Human handoff & QA",
+                  ],
+                },
+                {
+                  title: "AI Automation & Workflows",
+                  icon: <Workflow className="w-5 h-5 text-foreground" />,
+                  points: [
+                    "LangGraph orchestration",
+                    "Retries, guards, SLAs",
+                    "Slack/Email/HubSpot integrations",
+                  ],
+                },
+                {
+                  title: "Analytics & Text‑to‑SQL",
+                  icon: <LineChart className="w-5 h-5 text-foreground" />,
+                  points: [
+                    "Semantic SQL generation",
+                    "Schema & policy guards",
+                    "Dashboards & insights",
+                  ],
+                },
+                {
+                  title: "Model Integration & MLOps",
+                  icon: <Rocket className="w-5 h-5 text-foreground" />,
+                  points: [
+                    "Bedrock / Anthropic / OpenAI",
+                    "Evals, tracing, monitoring",
+                    "CI/CD deploys",
+                  ],
+                },
+                {
+                  title: "Custom AI Apps",
+                  icon: <Bot className="w-5 h-5 text-foreground" />,
+                  points: [
+                    "Chat & copilots (multi‑modal)",
+                    "Auth, roles, billing",
+                    "Secure enterprise delivery",
+                  ],
+                },
+              ].map((s) => (
+                <div
+                  key={s.title}
+                  className="group p-6 md:p-8 border border-border rounded-lg hover:border-muted-foreground/50 transition-all duration-500 hover:shadow-lg"
+                >
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center gap-3">
+                      {s.icon}
+                      <h3 className="text-lg font-medium">{s.title}</h3>
+                    </div>
+                  </div>
+
+                  <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
+                    {s.points.map((p) => (
+                      <li key={p} className="flex items-start gap-2">
+                        <span className="mt-1 size-1.5 rounded-full bg-muted-foreground/50" />
+                        <span>{p}</span>
+                      </li>
+                    ))}
+                  </ul>
+
+                  <div className="mt-6">
+                    <Button size="sm" asChild>
+                      <Link href="mailto:naumanrao1254@outlook.com?subject=AI%20project%20proposal">Get a proposal</Link>
+                    </Button>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section
+          id="work"
+          ref={(el) => {
+            sectionsRef.current[2] = el
           }}
           className="min-h-screen py-32 opacity-0"
         >
@@ -223,7 +335,7 @@ export default function Home() {
         <section
           id="thoughts"
           ref={(el) => {
-            sectionsRef.current[2] = el
+            sectionsRef.current[3] = el
           }}
           className="min-h-screen py-32 opacity-0"
         >
@@ -297,7 +409,7 @@ export default function Home() {
         <section
           id="connect"
           ref={(el) => {
-            sectionsRef.current[3] = el
+            sectionsRef.current[4] = el
           }}
           className="py-32 opacity-0"
         >
