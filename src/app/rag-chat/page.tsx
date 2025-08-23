@@ -46,8 +46,12 @@ export default function RagChatPage() {
   // Initialize theme from current document state
   useEffect(() => {
     const html = document.documentElement
-    const hasDark = html.classList.contains("dark")
-    setIsDark(hasDark)
+    if (!html.classList.contains("dark")) {
+      html.classList.add("dark")
+      setIsDark(true)
+      return
+    }
+    setIsDark(true)
   }, [])
 
   // Apply theme toggle to root like the homepage does
