@@ -109,6 +109,18 @@ export default function Home() {
                   </div>
                   <div>Lahore, Pakistan</div>
                 </div>
+
+                <div className="flex items-center gap-3 pt-2">
+                  <Button asChild>
+                    <Link href="/rag-chat">
+                      Try RAG Chat Demo
+                      <span className="ml-2 px-2 py-0.5 text-[10px] rounded-full border border-border text-muted-foreground">New</span>
+                    </Link>
+                  </Button>
+                  <Button variant="outline" asChild>
+                    <Link href="#services">Explore services</Link>
+                  </Button>
+                </div>
               </div>
             </div>
 
@@ -155,6 +167,9 @@ export default function Home() {
               <div className="flex items-center gap-3">
                 <Button size="sm" asChild>
                   <Link href="mailto:naumanrao1254@outlook.com?subject=Project%20fit%20%26%20proposal">Book a 15‑min intro</Link>
+                </Button>
+                <Button size="sm" asChild>
+                  <Link href="/rag-chat">Try RAG Demo</Link>
                 </Button>
                 <Button size="sm" variant="outline" asChild>
                   <Link href="#thoughts">See case studies</Link>
